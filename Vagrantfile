@@ -4,7 +4,7 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
 
-  config.vm.network "forwarded_port", guest: 4000, host: 4000
+  config.vm.network "forwarded_port", guest: 4000, host: 8080, auto_correct: true
   config.vm.synced_folder "site", "/site"
 
   # Provider-specific configuration so you can fine-tune various
@@ -23,5 +23,5 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", path: "provisioner.sh"
+  config.vm.provision "shell", path: "jekyll-install.sh"
 end
