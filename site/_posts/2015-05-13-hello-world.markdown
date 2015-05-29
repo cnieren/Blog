@@ -13,7 +13,7 @@ For my initial post, and to test the syntax highlighter, I want to post two litt
 
 The first round was a multiple choice Survey Monkey poll that let you chose both King and Queen choices on the same page. So it was simply a matter of finding the two checkboxes on the page, selecting them and submitting the form. I used a Python library [Mechanical Soup][ms] which opens a 'browser object' points it to the specified url, finds the two inputs for the people I wanted to vote for and checks them, then submits the form. This doesn't actually open a browser window, so it voted 439 times in about 7 minutes... I'm betting that they won't run analytics here.
 
-{% highlight python lineno %}
+{% highlight python3 %}
 import mechanicalsoup
 
 for i in range(1, 439):
