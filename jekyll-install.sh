@@ -1,14 +1,33 @@
 #!/bin/bash
 
+# Variables
+gsutil_url_base=https://storage.googleapis.com/pub
+gsutil_file=gsutil.tar.gz
+gsutil_folder=gsutil
+
 # Install ruby-dev
-echo 'Installing Jekyll'
+echo 'Installing Dependencies'
 sudo apt-get update -qq && sudo apt-get install -yqq ruby-dev \
     nodejs \
-    python3-pip
+    python3-pip \
+    > /dev/null
 
-pip3 install -q Pygments
-sudo gem install -q jekyll
-sudo gem install -q execjs
+echo 'Installing Pygments'
+pip3 install -q Pygments > /dev/null
 
-cd /site
-jekyll serve -H 0.0.0.0 --force_polling
+echo 'Installing Jekyll'
+sudo gem install -q jekyll > /dev/null
+
+echo 'Installing execjs'
+sudo gem install -q execjs > /dev/null
+
+echo 'Installing gsutil'
+wget -q "${gsutil_url_base}/${gsutil_file}" > /dev/null
+tar xfz "${gsutil_file}" > /dev/null
+rm "${gsutil_file}" > /dev/null
+
+# rename the folder to bin so that it is included in $PATH
+mv "${gsutil_folder}" bin > /dev/null
+
+echo "TODO: run 'gsutil config' to configure Google Cloud Platform Tools"
+echo 'Done'
