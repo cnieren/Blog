@@ -11,4 +11,4 @@ sudo gem install -q jekyll
 sudo gem install -q execjs
 
 cd /site
-jekyll serve
+jekyll serve -H 0.0.0.0 --force_polling
