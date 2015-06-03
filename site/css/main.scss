@@ -22,7 +22,7 @@ $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    800px;
+$content-width:    1170px;
 
 $on-palm:          600px;
 $on-laptop:        800px;
@@ -50,3 +50,28 @@ $on-laptop:        800px;
         "layout",
         "syntax-highlighting"
 ;
+
+
+.resume {
+    h2 {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 22px;
+
+        small {
+            display: block;
+            margin-left: 6px;
+            font-size: 14px;
+        }
+    }
+    
+    .section {
+    }
+
+    .time {
+        float: right;
+        padding-top: 5px;
+    }
+}
