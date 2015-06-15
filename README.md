@@ -1,4 +1,4 @@
-# The Blog
+# [The Blog](http://chadnierenhausen.com)
 
 Jekyll based blog, run out of a docker container.
 
