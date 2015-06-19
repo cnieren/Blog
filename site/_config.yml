@@ -4,7 +4,7 @@ email: chad.nierenhausen@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
  "A place for me to post reminders to myself about the things I do."
 baseurl: ""
-host: 0.0.0.0
+#host: 0.0.0.0
 url: "http://chadnierenhausen.com"
 title_description: "Web Development, Blogging, and Other Stuff I Do"
 title_image: "images/bio.jpg"
@@ -23,7 +23,7 @@ stackoverflow_link:
 
 # Footer
 footer_left: "Made with <i class=\"fa fa-heart\"></i> by <a href=\"https://twitter.com/TheWicker12\">Chad Nierenhausen</a>"
-footer_right: "&lt;/&gt; on <a href=\"https://github.com/cnieren/blog\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
+footer_right: "&lt;/&gt; on <a href=\"https://github.com/cnieren\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
 
 # Build settings
 markdown: kramdown
