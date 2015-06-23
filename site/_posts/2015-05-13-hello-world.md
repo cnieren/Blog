@@ -1,5 +1,6 @@
 ---
 layout:     post
+author:     Chad Nierenhausen
 title:      Hello World
 date:       2015-05-26
 summary:    Rigging the Kickball Prom King and Queen Election.
