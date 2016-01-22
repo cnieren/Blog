@@ -1,11 +1,11 @@
 /**
  *
- * Provides a stable deduplication function for a list of items
+ * Provides a stable dedupelication function for a list of items
  *
  */
-var Dedup = (function() {
+var Dedupe = (function() {
 
-    var dedup = {};
+    var dedupe = {};
     var _root = null;
 
     /**
@@ -13,7 +13,7 @@ var Dedup = (function() {
      * in a new array, while preserving the origional ordering
      * Note: Keeps the first occurrence of any duplicate item
      */
-    dedup.clean = function(arr) {
+    dedupe.clean = function(arr) {
         var i, test;
         var result = [];
 
@@ -79,7 +79,7 @@ var Dedup = (function() {
         return _addHelper(root.right, node);
     }
 
-    return dedup;
+    return dedupe;
 
 })();
 
@@ -202,7 +202,7 @@ var App = (function($) {
     /**
      * Go button entry point
      * Does some basic error checking and starts the generation
-     * and deduplication process.
+     * and dedupelication process.
      */
     _run = function() {
         var number = parseInt($('#number').val(), 10);
@@ -223,7 +223,7 @@ var App = (function($) {
             _showError('Percent out of range .1 <= percent <= .5');
         }
 
-        _dedup(number, percent);
+        _dedupe(number, percent);
     }
 
     /**
@@ -239,7 +239,7 @@ var App = (function($) {
      * Performs the work of generating the data, removing the duplicates,
      * and records the stats for the output.
      */
-    _dedup = function(num, percent) {
+    _dedupe = function(num, percent) {
         var context = {
             input: [],
             output: [],
@@ -267,7 +267,7 @@ var App = (function($) {
 
         // Record the time it takes to remove duplicates
         t0 = performance.now();
-        context.output = Dedup.clean(context.input);
+        context.output = Dedupe.clean(context.input);
         t1 = performance.now();
 
         context.stats.outSize = context.output.length;
