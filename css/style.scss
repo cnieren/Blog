@@ -749,21 +749,33 @@ ul {
 	}
 }
 
+.flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row.around {
+    justify-content: space-around;
+}
+
+.flex-row:first-child {
+    padding-bottom: 15px;
+}
+
+.flex-top {
+    align-self: flex-start;
+}
+
+.flex-bottom {
+    align-self: flex-end;
+}
+
+.flex-row > .col-3 {
+    flex: 0 0 33.3333%;
+}
+
 .resume {
-    .flex-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .flex-row.around {
-        justify-content: space-around;
-    }
-
-    .flex-row:first-child {
-        padding-bottom: 15px;
-    }
-
     .content-panel > h3 {
         text-align: center;
         color: $light-blue;
@@ -780,6 +792,31 @@ ul {
 
     .job:last-child {
         border: none;
+    }
+}
+
+.dedup {
+    label {
+        padding-right: 5px;
+    }
+
+    input, button, select {
+        color: #333;
+        font-weight: bold;
+        flex: 0 0 33.333%;
+    }
+
+    ul {
+        padding-left: 0px;
+    }
+
+    .flex-row > [class*="col-"] {
+        padding: 1em 0 0 1em;
+        justify-content: center;
+    }
+
+    .error {
+        color: red;
     }
 }
 

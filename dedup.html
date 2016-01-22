@@ -1,0 +1,83 @@
+---
+layout: default
+title: (Super) Dedup-er
+---
+
+<div class="container-fluid index">
+    <div class="row dedup">
+        <h1 class="header header-author">{{page.title}}</h1>
+        <div id="form" class="content-panel">
+            <div class="row">
+                <h4>Instructions</h4>
+                <ol>
+                    <li>Select the type of item you want to generate</li>
+                    <li>Enter the number of items to generate, between 1 and 100000</li>
+                    <li>Enter the percent of that total that should be duplicated, between .1 and .5</li>
+                    <li>Hit Go!</li>
+                </ol>
+                <p>The specified number of items will be generated with the specified percent of duplicates. That list will then have all duplicates removed, while maintaining the original ordering of the list. You will be shown the original list that was generated, the list with duplicates removed, and some stats about how long it took to remove the duplicates, the original number of items, and the number of duplicates that were in the list.</p>
+                <hr />
+            </div>
+            <div class="flex-row">
+                <label for="dataType">Item Type</label>
+                <select id="dataType" name="dataType">
+                    <option value="email" selected="selected">Emails</option>
+                    <option value="number">Numbers</option>
+                </select>
+            </div>
+            <div class="flex-row">
+                <div class="col-md-4">
+                    <label for="number">Number of Items</label>
+                    <input id="number" type="number" name="number" min="0" max="900000" value="10" step="10"></input>
+                </div>
+                <div class="col-md-4">
+                    <label for="percent">Percent duplication</label>
+                    <input id="percent" type="number" name="percent" min="0" max="0.5" value="0.25" step=".05"></input>
+                </div>
+                <div class="col-md-4 flex-bottom">
+                    <button id="go">Go!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% raw %}
+<script id="error-msg-template" type="text/x-handlebars-template">
+    <div class="alert alert-danger">{{msg}}</div>
+</script>
+
+<script id="result-template" type="text/x-handlebars-template">
+        <div id="result" class="content-panel flex-row around">
+            <div class="flex-top col-md-4">
+                <h3>Input</h3>
+                <ul>
+                    {{#each input}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                <ul>
+            </div>
+            <div class="flex-top col-md-4">
+                <h3>Output</h3>
+                <ul>
+                    {{#each output}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                <ul>
+            </div>
+            <div class="flex-top col-md-4">
+                <h3>Stats</h3>
+                <ul>
+                    <li>Input size: {{stats.inSize}}</li>
+                    <li>Output size: {{stats.outSize}}</li>
+                    <li>Time spent (seconds): {{stats.time}}</li>
+                </ul>
+            </div>
+        </div>
+</script>
+{% endraw %}
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/handlebars-v4.0.5.js"></script>
+<script src="/js/dedup.js"></script>

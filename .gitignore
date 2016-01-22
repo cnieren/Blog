@@ -26,3 +26,6 @@ _site/
 
 # Ruby
 Gemfile.lock
+
+# Vagrant
+.vagrant

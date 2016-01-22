@@ -10,7 +10,7 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 4000, host: 4040
+  config.vm.network "forwarded_port", guest: 4000, host: 4000
 
   # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
   # such as FTP and Heroku are also available. See the documentation at
@@ -32,7 +32,8 @@ Vagrant.configure(2) do |config|
     curl -sSL https://get.rvm.io | bash -s stable --ruby
 
     source /home/vagrant/.rvm/scripts/rvm
-
+    source /usr/local/rvm/scripts/rvm
+    
     rvm install 2.1.2
 
     rvm use 2.1.2 --default
