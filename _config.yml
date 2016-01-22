@@ -1,8 +1,7 @@
 # Site settings
 title: "Chad Nierenhausen"
 email: chad.nierenhausen@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
- "A place for me to post reminders to myself about the things I do."
+description: A place for me to post reminders to myself about the things I do.
 baseurl: ""
 #host: 0.0.0.0
 url: "http://chadnierenhausen.com"

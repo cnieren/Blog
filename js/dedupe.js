@@ -205,7 +205,11 @@ var App = (function($) {
      * and dedupelication process.
      */
     _run = function() {
-        var number = parseInt($('#number').val(), 10);
+        var numStr = $('#number').val();
+        var filter = new RegExp(',', 'g');
+        numStr = numStr.replace(filter, '');
+
+        var number = parseInt(numStr, 10);
         var percent = parseFloat($('#percent').val());
 
         // Close any existing alert or results
