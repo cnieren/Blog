@@ -211,7 +211,7 @@ Clearly this method is faster, but even the doubly nested loops finished 10,000 
 
 ## Even bigger
 
-Let\'s assume we are trying to solve this problem in the same amount of time, but instead of only 100,000 items we had 100 million or 1 billion, how could we change our solution to work for these kinds of data sets? We could change the structure we insert all of the items into from a  binary tree to a hash table. In general insertion into a hash table runs in O(1)  or constant time, which would be possible to process in JavaScript on the client side in a reasonable time. Once we get into the billions it would make more sense to move the computation to the database. Database servers generally have significantly more processing power than an typical consumer computer, and they are optimized to run these kinds of computations.  
+Let\'s assume we are trying to solve this problem in the same amount of time, but instead of only 100,000 items we had 100 million or 1 billion, how could we change our solution to work for these kinds of data sets? We could change the structure we insert all of the items into from a  binary tree to a hash table. In general insertion into a hash table runs in O(1)  or constant time, which would be possible to process in JavaScript on the client side in a reasonable time. Once we get into the billions it would make more sense to move the computation to the database. Database servers generally have significantly more processing power than a typical consumer computer, and they are optimized to run these kinds of computations.  
 
 You can find a demo of this code [here][Demo], and the full version of the code that powers that demo can be found [here][DemoCode].
 
