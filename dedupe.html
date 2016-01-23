@@ -11,7 +11,7 @@ title: (Super) Dedup-er
                 <h4>Instructions</h4>
                 <ol>
                     <li>Select the type of item you want to generate</li>
-                    <li>Enter the number of items to generate, between 1 and 100000</li>
+                    <li>Enter the number of items to generate, between 1 and 100,000</li>
                     <li>Enter the percent of that total that should be duplicated, between .1 and .5</li>
                     <li>Hit Go!</li>
                 </ol>
@@ -20,7 +20,7 @@ title: (Super) Dedup-er
             </div>
             <div class="flex-row">
                 <label for="dataType">Item Type</label>
-                <select id="dataType" name="dataType">
+                <select id="dataType" name="dataType" class="form-control">
                     <option value="email" selected="selected">Emails</option>
                     <option value="number">Numbers</option>
                 </select>
@@ -28,14 +28,14 @@ title: (Super) Dedup-er
             <div class="flex-row">
                 <div class="col-md-4">
                     <label for="number">Number of Items</label>
-                    <input id="number" type="number" name="number" min="0" max="900000" value="10" step="10" />
+                    <input class="form-control" id="number" type="number" name="number" min="0" max="100000" value="10" step="10" />
                 </div>
                 <div class="col-md-4">
                     <label for="percent">Percent duplication</label>
-                    <input id="percent" type="number" name="percent" min="0" max="0.5" value="0.25" step=".05" />
+                    <input class="form-control" id="percent" type="number" name="percent" min="0" max="0.5" value="0.25" step=".05" />
                 </div>
                 <div class="col-md-4 flex-bottom">
-                    <button id="go">Go!</button>
+                    <button class="btn btn-default" id="go">Go!</button>
                 </div>
             </div>
         </div>

@@ -221,8 +221,8 @@ var App = (function($) {
             _showError('Invalid Number.');
         } else if (isNaN(percent)) {
             _showError('Invalid Percent.');
-        } else if (number < 1 || number > 999999) {
-            _showError('Number out of range 1 <= number <= 999999.');
+        } else if (number < 1 || number > 100000) {
+            _showError('Number out of range 1 <= number <= 100,000.');
         } else if (percent < .1 || percent > .5) {
             _showError('Percent out of range .1 <= percent <= .5');
         }
