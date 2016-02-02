@@ -595,10 +595,14 @@ ul {
 				margin-left: -15px;
 				padding-right: 45px;
 				box-sizing: content-box;
+                border-radius: 0;
+                font-size: 16px;
 
 				@media (min-width: $screen-sm-min) {
 					margin-left: -30px;
-					padding-right: 60px;
+					padding-right: 25px;
+                    padding-left: 35px;
+                    border: none;
 				}
 
 				pre {
@@ -751,7 +755,7 @@ ul {
 
 .flex-row {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -808,6 +812,10 @@ ul {
 
     ul {
         padding-left: 0px;
+    }
+
+    .flex-row {
+        justify-content: center;
     }
 
     .flex-row > [class*="col-"] {

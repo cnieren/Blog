@@ -21,7 +21,7 @@ Here is a live [demo][Demo] you can play with and the code that powers the demo 
 ## The easy solution
 Let\'s start with the obvious answer, doubly nested loops! For each element in the list we visit every other element to see if we find a duplicate. 100,000 items sounds big, but modern computers are super-fast. Maybe it will be fast enough, let\'s test.
 
-{% highlight javascript %}
+~~~ js
 function dedupe(arr) {
     var i, j;
 
@@ -54,13 +54,12 @@ console.log('Took:', (t1 - t1) / 1000.0, 'seconds');
 // Before: 10 [1, 2, 0, 3, 4, 3, 2, 4, 1, 0]
 // After: 5 [1, 2, 0, 3, 4]
 // Took: 0.00013000000000000256 seconds.
-
-{% endhighlight %}
+~~~
 
 For 10 items it\'s definitely fast enough, but how will it work with 1,000, 10,000, or 100,000 items? I\'m not about to type a 1,000 item array manually, so  the next thing we need is something to generate arrays for us to test with.
 
 
-{% highlight javascript %}
+~~~ js
 function generate(num) {
     var i, result = [];
 
@@ -124,7 +123,7 @@ console.log('Took:', (t1 - t1) / 1000.0, 'seconds');
 // After: 5000
 // Took: 0.04742000000000001 seconds.
 
-{% endhighlight %}
+~~~
 
 This is looking really good. 10,000 items with 50% duplication only takes about 47 milliseconds, and one more zero can\'t make that much of a difference can it? Wrong, 100,000 items takes 4.5 seconds on my fairly powerful desktop computer. For fun I added one more zero just to see how long it would take for 1,000,000 items. **7.5 minutes!** We knew this wasn\'t the best solution, doubly nested loops run in O(n<sup>2</sup>) time, but they are really easy to write and as we showed, for small enough inputs, they work just fine.
 
@@ -132,7 +131,7 @@ This is looking really good. 10,000 items with 50% duplication only takes about 
 
 Instead of searching for each item in the list, let\'s use a binary tree to help. It isn\'t the most intuitive solution, but it goes something like this: attempt to add every item in the list to a binary tree. While we are trying to find the location in the tree for a particular item, if we find that the tree already contains that item, report that it was a duplicate and don\'t add it to the result. Inserting _n_ items into a binary tree on average runs in O(n log n) time. Just to drive this point home, for 20 items using the doubly nested loops  we would execute about 400 operations, using the tree method we would execute just 26! Here is the important code and the results of running the same tests as before using the tree solution.
 
-{% highlight javascript %}
+~~~ js
 var root = null;
 
 
@@ -205,7 +204,7 @@ function addHelper(root, node) {
 // After: 5000
 // Took: 0.013000000000000015 seconds.
 
-{% endhighlight %}
+~~~
 
 Clearly this method is faster (100,000 items with this code took 0.137 seconds), but even the doubly nested loops finished 10,000 items in under a second. The \'just for fun\' test from before of 1,000,000 items that took 7.5 minutes now only takes 1.5 seconds! But if we push it by just one more zero again to 10,000,000, we jump to 22.5 seconds.
 

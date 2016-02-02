@@ -30,14 +30,16 @@ The first solution I came up with to skirt the issue with Ruby on Windows was to
 2.  As of Jekyll version 2.4 the serve command will watch the file system of your site and when it detects a change it will automatically rebuild the site and a refresh of the browser will show you the result. This works great on a *nix system, but when you run Jekyll in Vagrant on Windows, NTFS doesn\'t provide the same file update notifications. The work around for this is to run ``` jekyll serve --force_polling ``` which will force the Jekyll server to periodically poll the file system and rebuild the site when it detects a change.
 
 At this point we have Jekyll running inside of a Vagrant box, and all of the dependencies are hidden away inside of that container. The project is checked into a Git repository and any machine I want to develop on only needs to have Vagrant and VirtualBox installed. To work on the project all I need to do is:
-{% highlight sh %}
+
+~~~ shell
 git clone https://github.com/cnieren/blag.git blag
 cd blag
 vagrant up
 vagrant ssh
 cd /site
 jekyll serve --force_polling <-h 0.0.0.0>
-{% endhighlight %}
+~~~
+
 Then point your browser to 0.0.0.0:4000 and you will see the generated result! Plus each time we make a change to a file and save it, the site is automatically rebuilt and a refresh of the browser window shows the changes.
 
 

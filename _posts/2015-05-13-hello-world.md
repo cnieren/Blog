@@ -21,7 +21,7 @@ For my initial post, and to test the syntax highlighter, I want to post two litt
 
 The first round was a multiple choice Survey Monkey poll that let you chose both King and Queen choices on the same page. So it was simply a matter of finding the two checkboxes on the page, selecting them and submitting the form. I used a Python library [Mechanical Soup][ms] which opens a \'browser object\' points it to the specified url, finds the two inputs for the people I wanted to vote for and checks them, then submits the form. This doesn\'t actually open a browser window, so it voted 439 times in about 7 minutes\.\.\. I\'m betting that they won\'t run analytics here.
 
-{% highlight python3 %}
+~~~ py
 import mechanicalsoup
 
 for i in range(1, 439):
@@ -36,7 +36,7 @@ for i in range(1, 439):
     form.find("input", {"name": "788223053[]", "value": "8873193002"})['checked'] = "checked"
 
     response = br.submit(form, page.url)
-{% endhighlight %}
+~~~
 
 
 ## Round 2 <small>- They can not stop me!</small>
@@ -45,7 +45,7 @@ When the people your script voted for win by a margin of 400 votes you don\'t ne
 
 [Selenium][se] is a framework for automating testing of web user interfaces, and conveniently has a Python library. I also wanted to try and reduce the chance that if they did run analytics that they would see 70 submissions all at the same time. So I decide to try and make the votes a little more random, this script will vote once randomly every 15 - 45 minutes and it only will do that up to 70 times, or as many times as it can before the survey closes. This one actually opens a Chrome Incognito window, points it to the survey URL votes for the King, moves to the second page and votes for the Queen, submits the form and closes the browser.
 
-{% highlight python %}
+~~~ py
 import time
 import random
 from selenium import webdriver
@@ -68,8 +68,7 @@ for i in range(1, 70):
     done = driver.find_element_by_class_name("done-button")
     done.click()
     driver.close()
-{% endhighlight %}
-
+~~~
 
 ### Round 3 <small>- They can stop me :\(</small>
 
