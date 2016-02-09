@@ -5,5 +5,4 @@ description = "Resume"
 title = "Resume"
 slug = "resume"
 
-js = ["dedupe.js"]
 +++
