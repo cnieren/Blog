@@ -1,4 +1,4 @@
-baseurl = "http://chadnierenhausen.com"
+baseurl = "http://cnieren.github.io.s3-website-us-west-2.amazonaws.com/"
 title = "Chad Nierenhausen"
 languageCode = "en-us"
 
@@ -27,6 +27,7 @@ PaginatePath = "/"
     twitter = "@TheWicker12"
     linkedin = "cnieren"
     ganalytics = "UA-64536435-1"
+    gravatar = "https://s.gravatar.com/avatar/e13f7ee785d37b819842851e71d2ad22?s=150"
 
 [taxonomies]
     tag = "tags"

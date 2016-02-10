@@ -105,6 +105,10 @@ nav ul li a {
     color: #b58900;
 }
 
+header .gravatar img {
+    border-radius: 5%;
+}
+
 .brand, .title {
     font-size: 2em;
     margin: 0;

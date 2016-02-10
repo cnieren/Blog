@@ -12,7 +12,7 @@
         <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
         <meta name="keywords" content="{{ with .Keywords }}{{ delimit . ", " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
         {{ .Hugo.Generator }}
-        <link rel="icon" href="{{ "/asstes/favicon.ico" | absURL }}" type="image/x-icon">
+        <link rel="icon" href="{{ "/assets/favicon.ico" | absURL }}" type="image/x-icon">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="{{ "/css/highlightjs-solarized-dark.css" | absURL }}">
         <link rel="stylesheet" href="{{ "/css/styles.css" | absURL }}">
         {{ range .Params.css }}
-            <link rel="stylesheet" href="/css/{{ . }}">
+        <link rel="stylesheet" href="/css/{{ . }}">
         {{ end }}
         <title>
             {{ if eq .URL "/" }}
@@ -45,12 +45,17 @@
                     <p>{{ .ReadingTime }} minute read</p>
                 </aside>
                 {{ else }}
+                {{ with .Site.Params.gravatar }}
+                <div class="gravatar">
+                    <img src="{{ . }}" alt="Me" />
+                </div>
+                {{ end }}
                 <h1 class="brand">{{ .Site.Title }}</h1>
                 <p class="tagline">{{ .Site.Params.tagline | safeHTML }}</p>
                 <p class="socials">
-                    {{ with .Site.Params.linkedin }}<a href="//linkedin.com/{{ . }}"><i class="fa fa-linkedin fa-2x"></i></a>{{ end }}
-                    {{ with .Site.Params.github }}<a href="http://gihub.com/{{ . }}"><i class="fa fa-github-alt fa-2x"></i></a>{{ end }}
-                    {{ with .Site.Params.twitter }}<a href="//twitter.com/{{ . }}"><i class="fa fa-twitter fa-2x"></i></a>{{ end }}
+                    {{ with .Site.Params.linkedin }}<a target="_blank" href="//linkedin.com/in/{{ . }}"><i class="fa fa-linkedin fa-2x"></i></a>{{ end }}
+                    {{ with .Site.Params.github }}<a target="_blank" href="http://github.com/{{ . }}"><i class="fa fa-github-alt fa-2x"></i></a>{{ end }}
+                    {{ with .Site.Params.twitter }}<a target="_blank" href="//twitter.com/{{ . }}"><i class="fa fa-twitter fa-2x"></i></a>{{ end }}
                     {{ with .Site.Params.email }}<a href="mailto:{{ . }}"><i class="fa fa-envelope fa-2x"></i></a>{{ end }}
                 </p>
                 {{ end }}
