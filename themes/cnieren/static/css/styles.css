@@ -192,6 +192,59 @@ header .gravatar img {
     text-align: center;
 }
 
+/***************************/
+/*        Resume           */
+/***************************/
+.resume section {
+  /* background-color: #073642; */
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-bottom: 15px;
+}
+
+.resume section:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resume article {
+  margin-left: 10px;
+}
+
+.resume article:not(:last-child) {
+  border-bottom: 1px solid #586e75;
+}
+
+.resume .skills ul {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
+
+.resume small,
+.resume .small {
+  color: #b58900;
+}
+
+.resume h3 {
+  text-align: center;
+}
+
+.resume h4 {
+  color: #2aa198;
+}
+
+.resume h5 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.resume h5 small {
+  display: block;
+}
+
 /* Small Devices (Tablets) */
 @media (min-width: 768px) {
     .brand, .title {
@@ -201,6 +254,22 @@ header .gravatar img {
     .tagline {
         font-size: 1em;
     }
+
+  .resume .skills {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .resume .skills ul {
+
+    -webkit-columns: 180px 3;
+    -webkit-column-gap: 20px;
+    -moz-columns: 180px 3;
+    -moz-column-gap: 20px;
+    column-count: 180px 3;
+    column-gap: 20px;
+  }
+
 }
 
 /* Medium Devices (desktops) */
