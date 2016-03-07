@@ -1,11 +1,11 @@
 {{ partial "header.html" . }}
 <article class="article-content">
     {{ .Content }}
-    <section class="meta">
+    <aside class="meta">
         <p>
             <i class="fa fa-tags"></i> {{ delimit .Params.tags ", " }}
         </p>
-    </section>
+    </aside>
     <section class="next-prev">
         {{ if .PrevInSection }}
         <span class="prev">

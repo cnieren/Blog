@@ -178,8 +178,8 @@ header .gravatar img {
 }
 
 .hljs {
-    border: 1px solid #eee8d5;
-    border-radius: 4px;
+    border: 2px solid;
+    border-radius: 5px;
 }
 
 .meta {
@@ -204,8 +204,7 @@ header .gravatar img {
 /***************************/
 /*        Resume           */
 /***************************/
-.resume section {
-  /* background-color: #073642; */
+section {
   border: 2px solid;
   border-radius: 5px;
   padding: 5px 15px;

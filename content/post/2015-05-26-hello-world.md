@@ -73,7 +73,5 @@ For round three they decided to have everyone vote on the fields using 'Physical
 
 This was the first web automation attempt I have ever made, and the first project (if you can call it that) I have ever written in Python. It was a fun excuse to try and game a system that didn't really matter much to anyone, and I learned some things along the way. I'm also starting to suspect that you really can solve most programming problems in Python with a simple import statement.
 
-Test
-
 [ms]: https://github.com/hickford/MechanicalSoup
 [se]: https://selenium-python.readthedocs.org/
