@@ -8,6 +8,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 1.5;
+    min-width: 320px;
 }
 
 a {
@@ -183,13 +184,21 @@ header .gravatar img {
 
 .meta {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-.meta p {
-    flex: 1 100%;
-    text-align: center;
+.next-prev {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.next-prev .prev {
+  margin-right: auto;
+}
+
+.next-prev .next {
+  margin-left: auto;
 }
 
 /***************************/

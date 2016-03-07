@@ -1,23 +1,25 @@
 {{ partial "header.html" . }}
 <article class="article-content">
     {{ .Content }}
-    <sction class="meta">
+    <section class="meta">
         <p>
             <i class="fa fa-tags"></i> {{ delimit .Params.tags ", " }}
         </p>
-        {{ if and (.Next) (eq .Next.Type "post") }}
+    </section>
+    <section class="next-prev">
+        {{ if .PrevInSection }}
         <span class="prev">
-            <a href="{{ .Next.Permalink }}"><i class="fa fa-arrow-left"></i> {{ .Next.Title }}</a>
-            <br /><span>published {{ .Next.Date.Format "Mon, Jan 02, 2006" }}</span>
+            <a href="{{ .PrevInSection.Permalink }}"><i class="fa fa-arrow-left"></i> {{ .PrevInSection.Title }}</a>
+            <br /><span>published {{ .PrevInSection.Date.Format "Mon, Jan 02, 2006" }}</span>
         </span>
         {{ end }}
 
-        {{ if and (.Prev) (eq .Prev.Type "post") }}
+        {{ if .NextInSection }}
         <span class="next">
-            <a href="{{ .Prev.Permalink }}">{{ .Prev.Title }} {{ .Prev.Type }} <i class="fa fa-arrow-right"></i></a>
-            <br /><span>published {{ .Prev.Date.Format "Mon, Jan 02, 2006" }}</span>
+            <a href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }} <i class="fa fa-arrow-right"></i></a>
+            <br /><span>published {{ .NextInSection.Date.Format "Mon, Jan 02, 2006" }}</span>
         </span>
         {{ end }}
-    </section>
+      </section>
 </article>
 {{ partial "footer.html" . }}

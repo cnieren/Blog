@@ -16,7 +16,7 @@ PaginatePath = "/"
 
 [params]
     colorscheme = "solarized"
-    tagline = "Web Development, Blogging, and Other Stuff I Do"
+    tagline = "Developer, Home Chef, Maker"
     footerLeft = "Made with <i class=\"fa fa-heart\"></i> by Chad Nierenhausen"
     footerRight = "</> on <a href=\"http://github.com/cnieren\">Github</a> <i class=\"fa fa-github-alt\"></i>"
     description = "Chad Nierenhausen's Blog"
