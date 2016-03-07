@@ -5,16 +5,16 @@
         <p>
             <i class="fa fa-tags"></i> {{ delimit .Params.tags ", " }}
         </p>
-        {{ if .Next }}
+        {{ if and (.Next) (eq .Next.Type "post") }}
         <span class="prev">
             <a href="{{ .Next.Permalink }}"><i class="fa fa-arrow-left"></i> {{ .Next.Title }}</a>
             <br /><span>published {{ .Next.Date.Format "Mon, Jan 02, 2006" }}</span>
         </span>
         {{ end }}
 
-        {{ if .Prev }}
+        {{ if and (.Prev) (eq .Prev.Type "post") }}
         <span class="next">
-            <a href="{{ .Prev.Permalink }}">{{ .Prev.Title }} <i class="fa fa-arrow-right"></i></a>
+            <a href="{{ .Prev.Permalink }}">{{ .Prev.Title }} {{ .Prev.Type }} <i class="fa fa-arrow-right"></i></a>
             <br /><span>published {{ .Prev.Date.Format "Mon, Jan 02, 2006" }}</span>
         </span>
         {{ end }}
