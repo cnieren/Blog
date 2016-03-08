@@ -9,7 +9,7 @@
         <script src="{{ "/js/site.js" | absURL }}"></script>
 
         {{ range .Params.js }}
-            <script src="/js/{{ . }}"></script>
+            <script src="{{ . }}"></script>
         {{ end }}
 
         {{ with .Site.Params.ganalytics }}

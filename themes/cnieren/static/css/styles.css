@@ -79,6 +79,70 @@ blockquote:before {
     left: 6px;
 }
 
+.flex .row {
+    display: flex;
+    flex: 0 1 auto;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: .75em 0;
+}
+
+.flex .row.start {
+    justify-content: flex-start;
+}
+
+.flex .row.center {
+    justify-content: center;
+}
+
+.flex .row.end {
+    justify-content: flex-end;
+}
+
+.flex .row.top {
+    align-items: flex-start;;
+}
+
+.flex .row.middle {
+    align-items: center;
+}
+
+.flex .row.bottom {
+    align-items: flex-end;
+}
+
+.flex .row.around {
+    justify-content: space-around;
+}
+
+.flex .row .flex-item {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.4em;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    color: #333;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.4em;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
 header,
 footer {
     background-color: #073642;
@@ -157,6 +221,7 @@ header .gravatar img {
     text-align: center;
 }
 
+
 .article-content,
 .article-listing {
     padding: 15px;
@@ -180,6 +245,10 @@ header .gravatar img {
 .hljs {
     border: 2px solid;
     border-radius: 5px;
+}
+
+#result ul, #result ul li {
+    list-style-type: none;
 }
 
 .meta {
