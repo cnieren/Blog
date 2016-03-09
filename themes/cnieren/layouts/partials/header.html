@@ -40,6 +40,7 @@
                 {{ if eq .Section "post" }}
                 {{ with .Params.thumbnail }}<p class="thumbnail"><i class="fa fa-{{ . }} fa-3x"></i></p>{{ end }}
                 <h1 class="title">{{ .Title }}</h1>
+                {{ with .Description }}<p class="description">{{ .}}</p>{{ end }}
                 <aside>
                     <p>by {{ .Params.author }} on {{ .Date.Format "Mon, Jan 02, 2006" }}{{ with .Params.category }} under {{ . }}{{ end }}</p>
                     <p>{{ .ReadingTime }} minute read</p>

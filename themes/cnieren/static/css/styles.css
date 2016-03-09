@@ -152,9 +152,6 @@ footer {
     align-items: center;
 }
 
-nav {
-}
-
 nav ul {
     display: flex;
     justify-content: space-around;
@@ -172,6 +169,10 @@ nav ul li a {
 
 header .gravatar img {
     border-radius: 5%;
+}
+
+header .description {
+    color: #b58900;
 }
 
 .brand, .title {
@@ -220,7 +221,6 @@ header .gravatar img {
 .center {
     text-align: center;
 }
-
 
 .article-content,
 .article-listing {
