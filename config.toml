@@ -34,6 +34,9 @@ PaginatePath = "/"
     category = "categories"
     series = "series"
 
+[blackfriday]
+    hrefTargetBlank = true
+
 [menu]
     [[menu.main]]
     identifier  = "home"
