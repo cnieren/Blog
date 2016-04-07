@@ -1,0 +1,9 @@
+{{ partial "header.html" . }}
+<article class="article-listing">
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+    {{ range $paginator.Pages }}
+    {{ .Render "summary" }}
+    {{ end }}
+    {{ template "_internal/pagination.html" . }}
+</article>
+{{ partial "footer.html" . }}

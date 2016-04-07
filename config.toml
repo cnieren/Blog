@@ -1,0 +1,57 @@
+baseurl = "http://cnieren.github.io.s3-website-us-west-2.amazonaws.com/"
+title = "Chad Nierenhausen"
+languageCode = "en-us"
+
+MetaDataFormat = "toml"
+theme = "cnieren"
+paginate = 5
+PaginatePath = "/"
+
+[author]
+    name = "Chad Nierenhausen"
+
+[permalinks]
+    page = "/:slug/"
+    post = "/post/:title"
+
+[params]
+    colorscheme = "solarized"
+    tagline = "Developer, Home Chef, Maker"
+    footerLeft = "Made with <i class=\"fa fa-heart\"></i> by Chad Nierenhausen"
+    footerRight = "</> on <a href=\"http://github.com/cnieren\">Github</a> <i class=\"fa fa-github-alt\"></i>"
+    description = "Chad Nierenhausen's Blog"
+    keywords = "home, blog, chad, nierenhausen, chad nierenhausen"
+
+    email = "chad.nierenhausen@gmail.com"
+    github = "cnieren"
+    twitter = "@TheWicker12"
+    linkedin = "cnieren"
+    ganalytics = "UA-64536435-1"
+    gravatar = "https://s.gravatar.com/avatar/e13f7ee785d37b819842851e71d2ad22?s=150"
+
+[taxonomies]
+    tag = "tags"
+    category = "categories"
+    series = "series"
+
+[blackfriday]
+    hrefTargetBlank = true
+
+[menu]
+    [[menu.main]]
+    identifier  = "home"
+    name        = "home"
+    url         = "/"
+    weight      = 0
+
+    [[menu.main]]
+    identifier  = "resume"
+    name        = "resume"
+    url         = "/resume/"
+    weight      = 1
+
+    # [[menu.main]]
+    # identifier  = "about"
+    # name        = "about"
+    # url         = "/about/"
+    # weight      = 2

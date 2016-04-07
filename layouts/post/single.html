@@ -1,0 +1,25 @@
+{{ partial "header.html" . }}
+<article class="article-content">
+    {{ .Content }}
+    <aside class="meta">
+        <p>
+            <i class="fa fa-tags"></i> {{ delimit .Params.tags ", " }}
+        </p>
+    </aside>
+    <section class="next-prev">
+        {{ if .PrevInSection }}
+        <span class="prev">
+            <a href="{{ .PrevInSection.Permalink }}"><i class="fa fa-arrow-left"></i> {{ .PrevInSection.Title }}</a>
+            <br /><span>published {{ .PrevInSection.Date.Format "Mon, Jan 02, 2006" }}</span>
+        </span>
+        {{ end }}
+
+        {{ if .NextInSection }}
+        <span class="next">
+            <a href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }} <i class="fa fa-arrow-right"></i></a>
+            <br /><span>published {{ .NextInSection.Date.Format "Mon, Jan 02, 2006" }}</span>
+        </span>
+        {{ end }}
+      </section>
+</article>
+{{ partial "footer.html" . }}
