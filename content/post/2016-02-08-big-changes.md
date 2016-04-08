@@ -18,15 +18,15 @@ Editing the site now is a simple as running `hugo serve` at the top level direct
 ## Theme
 Hugo also has an impressive list of beautiful and free [themes] you can use to get up and running quickly. I decided that using the Jekyll importer and a pre-built theme would be too easy. So I decided to build my own theme in order to really learn how Hugo works and not just build my blog on a technology I don't fully understand. I started by copying one of the existing themes, and modifying it to fit what I wanted, but ended up replacing most, if not all, of what I started with from the original theme. The decision to build my own theme did have its intended effect of forcing me to learn a significant amount about how Hugo works, and I feel much more comfortable digging into the innards of my site than I did when I was using Jekyll.
 
-The colors are all based on Ethan Schoonover's [Solarized] theme. I have spent and unhealthy amount of time getting this color scheme working on every terminal and code editor I use, so it seemed natural that I should spend even more time styling my blog with the same colors.
+The colors are all based on Ethan Schoonover's [Solarized] theme. I have spent an unhealthy amount of time getting this color scheme working on every terminal and code editor I use, so it seemed natural that I should spend even more time styling my blog with the same colors.
 
 ## Codeship
-One of the benefits of using Jekyll was that GitHub Pages support it natively, you can read more about that [here]({{< relref "post/2015-09-02-about-this-blog-2.md#github" >}}). If you aren't using Jekyll with GitHub Pages, you need to have two branches that you manage for your site:
+One of the benefits of using Jekyll was that GitHub Pages support it natively, you can read more about that [here]({{< relref "post/2015-09-02-about-this-blog-2.md#github" >}}). If you are using GitHub Pages to serve a statically generated site, you need to have two branches that you manage for your site:
 
 * <i class="fa fa-code-fork"></i> master - contains the code for the generator and is where you would work on new content.
 * <i class="fa fa-code-fork"></i> gh-pages - contains the static generated content that will be served by GitHub Pages.
 
-This extra branch management didn't sound like a lot of fun, so I decided to use [Codeship], a Continuous Delivery service, to handle the building and publishing steps for the blog. After creating an account with Codeship I setup a new Go project and configured the integration with GitHub. When Codeship notices a change in the GitHub repository it spins up a Docker container with Go installed, and pulls the code from GitHub into the container. Controll is then handed over to the following test script:
+This extra branch management, while not terrible, didn't sound like a lot of fun, so I decided to use [Codeship], a Continuous Delivery service, to handle the building and publishing steps for the blog. After creating an account with Codeship I setup a new Go project and configured the integration with GitHub. When Codeship notices a change in the GitHub repository it spins up a Docker container with Go installed, and pulls the code from GitHub into the container. Control is then handed over to the following test script:
 ~~~  bash
 go get -v github.com/spf13/hugo
 hugo
