@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vagrant on Chad Nierenhausen</title>
+    <link>http://chadnierenhausen.com/tags/vagrant/</link>
+    <description>Recent content in Vagrant on Chad Nierenhausen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Nov 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://chadnierenhausen.com/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>A Vagrant Built My Homework</title>
+      <link>http://chadnierenhausen.com/post/a-vagrant-built-my-homework</link>
+      <pubDate>Tue, 10 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://chadnierenhausen.com/post/a-vagrant-built-my-homework</guid>
+      <description>
+
+&lt;h2 id=&#34;the-problem:d2989ac1479d191c349cb02f3e03212d&#34;&gt;The Problem&lt;/h2&gt;
+
+&lt;p&gt;This semester I am taking the &lt;a href=&#34;http://www.cs.arizona.edu/courses/cs452.html&#34; target=&#34;_blank&#34;&gt;Principals of Operating Systems&lt;/a&gt; course at the University of Arizona. In this class, students write a layered operating system that runs on top of an instructor-provided hardware abstraction called USLOSS. Students are given USLOSS as a compiled library that was built using the department&amp;rsquo;s Remote Access machine Lectura, which is currently running Ubuntu 12.04 LTS. My instructor also offers a compiled version of the USLOSS library for Mac computers.&lt;/p&gt;
+
+&lt;p&gt;The two computers that I spend the majority of my time working on are Windows computers, so the provided compiled versions of USLOSS won&amp;rsquo;t work for me natively. The first solution I came up with was to work on the project while connected to Lectura via SSH. I consider myself to be fairly competent when it comes to working inside of a Linux terminal, but I don&amp;rsquo;t want to &lt;strong&gt;have&lt;/strong&gt; to live inside of an SSH session with VIM or Emacs as my only good options for text editing. While I do know that VIM is just the bees-knees and is an incredibly capable editor, I would much rather have access to an editor like Sublime Text or Atom that gives me the best parts of VIM (hjkl movement and motions) without sacrificing the convenience of a modern editor to do the bulk of my work.&lt;/p&gt;
+
+&lt;p&gt;The second solution I came up with was to run an Ubuntu 12.04 Vagrant box to compile and run my project. This gives me the ability to edit my code using Sublime Text or Atom, while providing a platform to test on that is nearly identical to the one that will be used to grade my project, and thus helps me avoid the &amp;ldquo;it works on my computer but not on Lectura&amp;rdquo; panic that could result when, an hour before the project is due, I find out that there is some quirk of gcc on Ubuntu 12.04 that causes my code to not compile.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-i-solved-it:d2989ac1479d191c349cb02f3e03212d&#34;&gt;How I Solved It&lt;/h2&gt;
+
+&lt;p&gt;I first need to determine what version of Ubuntu and gcc Lectura is currently running. I can do that by running the following two commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cnieren@Lectura:~|$  lsb_release -dc
+Description:    Ubuntu 12.04.5 LTS
+Codename:       precise
+
+cnieren@Lectura:~|$  gcc --version
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next I need to find a Vagrant box for Ubuntu 12.04 (Precise 64). I found one &lt;a href=&#34;https://atlas.hashicorp.com/ubuntu/boxes/precise64&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;, and it just so happens that this is the official repository maintained by the fine folks at Ubuntu. Conveniently the version of gcc on Lectura is the same as the version of gcc on the ubuntu/precise64 Vagrant box!&lt;/p&gt;
+
+&lt;p&gt;To use this Vagrant box I add this Vagrantfile to the top level directory of my project:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = &amp;quot;ubuntu/precise64&amp;quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now when I run &lt;code&gt;vagrant up&lt;/code&gt; from any directory in my project, Vagrant will start up an Ubuntu 12.04 virtual machine and map my project directory from the host machine to the &lt;code&gt;/vagrant&lt;/code&gt; directory on the virtual machine. Running &lt;code&gt;vagrant ssh&lt;/code&gt; from a terminal window will open a connection to the virtual machine as expected. I can now open my project folder on the host machine using Sublime Text or Atom or any other editor I like, and as I modify files, they are automatically synced with the virtual machine.&lt;/p&gt;
+
+&lt;p&gt;The last thing I need to solve is how to get the USLOSS library included in my project. The instructions for getting this folder into my project on Lectura are to run &lt;code&gt;ln -s &amp;lt;remote usloss directory&amp;gt; &amp;lt;project directory&amp;gt;&lt;/code&gt;. This command is some Linux trickery which includes the contents of one folder in another without having to make a copy of the files directly. This folder has to be included in our projects in order for them to compile. To keep things in my Vagrant environment as close to the Lectura environment as possible, I copy the USLOSS folder from Lectura to the root directory of my project. Then from the terminal in my virtual machine,I run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;vagrant@vagrant-ubuntu-precise-64:/vagrant/phase1$ ln -s /vagrant/usloss /vagrant/phase1/usloss
+ln: failed to create symbolic link &#39;/vagrant/phase1/usloss&#39;: Protocol error
+vagrant@vagrant-ubuntu-precise-64:/vagrant/phase1$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is where running a Linux virtual machine on a Windows host machine with directory mapping from one to the other is a problem. That &lt;code&gt;ln&lt;/code&gt; command expects to find a unix file system, but instead gets a Windows file system and Windows doesn&amp;rsquo;t do soft links. So this isn&amp;rsquo;t going to work. The only option I have here is to copy the USLOSS folder directly into my phase1 folder and skip the soft links all together. This isn&amp;rsquo;t technically different from the soft link method except it uses more disk space because I have a bunch of copies of the USLOSS folder, one in each phase of the project.&lt;/p&gt;
+
+&lt;p&gt;There is one sneaky link left, if we look into the USLOSS folder we see the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cnieren@Lectura:/home/cs452/fall15/usloss/Linux|$  ls -lR
+.:
+total 8
+drwxrwxr-x 2 patrick 452f15 4096 Nov  4 10:18 include
+drwxrwxr-x 2 patrick 452f15 4096 Aug 25 22:32 lib
+
+./include:
+total 12
+-rw-rw-r-- 1 patrick 452f15    0 Aug 21 10:16 mmu.h
+-rw-rw-r-- 1 patrick 452f15 7699 Aug 21 10:16 usloss.h
+-rw-rw-r-- 1 patrick 452f15 1076 Aug 21 10:16 usyscall.h
+
+./lib:
+total 152
+-rw-rw-r-- 1 patrick 452f15 151002 Aug 21 10:16 libusloss2.9.a
+lrwxrwxrwx 1 patrick 452f15     14 Aug 21 10:16 libusloss.a -&amp;gt; libusloss2.9.a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That last line is a problem; it shows that the libusloss.a file is actually an alias (ln -s) for libusloss2.9.a. This trick lets us change the version of the USLOSS library we are using by changing the file with a version number, but  all references to libusloss.a will automagically update to the new version of the code. As we found before, the Windows file system doesn&amp;rsquo;t know how to handle soft links like this. Instead, I remove the libusloss.a link and rename libusloss2.9.a to libusloss.a and we are in business!&lt;/p&gt;
+
+&lt;p&gt;I have been using this setup for the first three phases of this project and it works wonderfully. To get started working, all I have to do is open my project in a text editor and run &lt;code&gt;vagrant up &amp;amp;&amp;amp; vagrant ssh&lt;/code&gt; in a terminal window. I can then work on the host Windows machine and as soon as I save changes they are synced to the Ubuntu virtual machine. At which point I can run &lt;code&gt;make&lt;/code&gt; or a test shell script to run my code. Most importantly, I have not had any problems getting my code to run on Lectura when I am ready to turn my project in.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About this Blog - Part 1</title>
+      <link>http://chadnierenhausen.com/post/about-this-blog---part-1</link>
+      <pubDate>Thu, 18 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://chadnierenhausen.com/post/about-this-blog---part-1</guid>
+      <description>
+
+&lt;h2 id=&#34;jekyll:6d39c835cfbcc75eac2b8c9d33749a9d&#34;&gt;Jekyll&lt;/h2&gt;
+
+&lt;p&gt;About a year ago I learned about &lt;a href=&#34;http://www.staticgen.com/&#34; target=&#34;_blank&#34;&gt;Static Site Generators&lt;/a&gt;, systems that allow website developers to use templates, partials, data structures, and control flow statements to build websites, but don&amp;rsquo;t require a database backend. There is a build step that compiles all of the templates into simple HTML, CSS and JavaScript files. &lt;a href=&#34;http://octopress.org/&#34; target=&#34;_blank&#34;&gt;Octopress&lt;/a&gt; was the first generator that I got excited about, but by the time I got around to actually building this site Octopress was smack in the middle of moving to version 3.0, which is a backwards-compatibility breaking change and at the time of this writing there is no concrete release date.&lt;/p&gt;
+
+&lt;p&gt;Octopress, before version 3.0, is really just a set of plugins and some custom modules built on top of &lt;a href=&#34;http://jekyllrb.com/&#34; target=&#34;_blank&#34;&gt;Jekyll&lt;/a&gt;, which is the second most popular static site generator, and the one that I chose to power this site. I ultimately decided to go with Jekyll because of its great documentation, tons of plugins, and a very active community. The biggest problem I had with Jekyll is that it runs on Ruby, and I develop mainly on Windows. While it is possible to get Ruby running on Windows, I really wasn&amp;rsquo;t interested in that fight. Additionally I wanted to be able to work on the blog from multiple machines without having to get a Ruby environment configured on each of them.&lt;/p&gt;
+
+&lt;h2 id=&#34;vagrant:6d39c835cfbcc75eac2b8c9d33749a9d&#34;&gt;Vagrant&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.vagrantup.com/&#34; target=&#34;_blank&#34;&gt;Vagrant&lt;/a&gt; provides easy to configure, reproducible, and portable work environments built on top of industry-standard technology and controlled by a single consistent workflow to help maximize the productivity and flexibility of you and your team.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Vagrant is essentially a virtual machine management utility, but unlike VirtualBox or V-Shpere, you define the operating system, and any dependencies or utilities you want to exist on the virtual machine in code. This makes it incredibly easy for teams to share development environments because the configuration of the machine is defined in file(s) that are checked into your version control system. When a new developer checks out the code repo the Vagrant file and any provisioning scripts are included. Then to get the virtual machine running to start development all you have to do is run &lt;code&gt;vagrant up&lt;/code&gt; and off you go. I don&amp;rsquo;t think this blog will ever have a team behind it, the ease of getting running on a different machine was the main draw for me.&lt;/p&gt;
+
+&lt;p&gt;The first solution I came up with to skirt the issue with Ruby on Windows was to package Jekyll and all of its dependencies into an Ubuntu Vagrant box. It&amp;rsquo;s much simpler to set up a Ruby environment on Ubuntu, and I would only have to configure the environment once. The Vagrant file and the scripts to provision it could all be checked into a Git repository and shared across all the machines I want to develop on, and the only two tools I would need installed on the development machines are &lt;a href=&#34;https://www.virtualbox.org/&#34; target=&#34;_blank&#34;&gt;VirtualBox&lt;/a&gt; and Vagrant. There are a few gotcha&amp;rsquo;s when working with Jekyll in a Vagrant environment:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;jekyll serve&lt;/code&gt; starts a webserver and hosts your site on 127.0.0.1:4000. This works great when your web browser is running on the same machine as Jekyll, but not when Jekyll is inside of a Vagrant box. To get around this issue you can either
+
+&lt;ol&gt;
+&lt;li&gt;Add the line &lt;code&gt;host: 0.0.0.0&lt;/code&gt; to your _config.yml, which holds all of your site specific configuration settings or,&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;jekyll serve -h 0.0.0.0&lt;/code&gt;, which has the same effect, but lets you opt in at runtime instead of being the default configuration. This would be useful if at some point I wanted to work on this site from a Linux machine directly and didn&amp;rsquo;t want to run Jekyll through a virtual machine.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;As of Jekyll version 2.4 the serve command will watch the file system of your site and when it detects a change it will automatically rebuild the site and a refresh of the browser will show you the result. This works great on a *nix system, but when you run Jekyll in Vagrant on Windows, NTFS doesn&amp;rsquo;t provide the same file update notifications. The work around for this is to run &lt;code&gt;jekyll serve --force_polling&lt;/code&gt; which will force the Jekyll server to periodically poll the file system and rebuild the site when it detects a change.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;At this point we have Jekyll running inside of a Vagrant box, and all of the dependencies are hidden away inside of that container. The project is checked into a Git repository and any machine I want to develop on only needs to have Vagrant and VirtualBox installed. To work on the project all I need to do is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/cnieren/blag.git blag
+cd blag
+vagrant up
+vagrant ssh
+cd /site
+jekyll serve --force_polling &amp;lt;-h 0.0.0.0&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then point your browser to 0.0.0.0:4000 and you will see the generated result! Plus each time we make a change to a file and save it, the site is automatically rebuilt and a refresh of the browser window shows the changes.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

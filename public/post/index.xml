@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Chad Nierenhausen</title>
+    <link>http://chadnierenhausen.com/post/</link>
+    <description>Recent content in Posts on Chad Nierenhausen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Mar 2016 13:06:06 -0700</lastBuildDate>
+    <atom:link href="http://chadnierenhausen.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Big Changes</title>
+      <link>http://chadnierenhausen.com/post/big-changes</link>
+      <pubDate>Tue, 08 Mar 2016 13:06:06 -0700</pubDate>
+      
+      <guid>http://chadnierenhausen.com/post/big-changes</guid>
+      <description>
+
+&lt;p&gt;One of the main reasons I started this blog, was to give me a place that I could use an excuse to experiment with new things that I found interesting. True to that goal I have spent some time over that last week completely modifying the underlying structure and technologies that I use to author and host this blog. Here is a quick rundown of some of the changes.&lt;/p&gt;
+
+&lt;h2 id=&#34;hugo:ec751d1c87f43ffcfd2b468cb8a0be6a&#34;&gt;Hugo&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt; is another static site generator, much like Jekyll, but it runs on Go instead of Ruby. I have been interested in Go since it was announced in 2009 and have been looking for a reason to learn more about it ever since, so I decided to transition the blog to Hugo as a first step. The most recent release of Hugo (v0.15) includes a Jekyll site import utility which automates most of the conversion of existing posts from a Jekyll site to Hugo which cemented my decision to switch. Two other selling points for Hugo are that the Hugo command line utility runs on any operating system, as long as Go is installed and its &lt;a href=&#34;https://www.youtube.com/watch?v=CdiDYZ51a2o&#34; target=&#34;_blank&#34;&gt;really fast&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Editing the site now is a simple as running &lt;code&gt;hugo serve&lt;/code&gt; at the top level directory of the site. This builds the site, and launches a small webserver running on localhost:1313. It automatically watches the project directory and includes LiveReload plugin which automatically refreshes the browser when changes are saved. The site currently takes Hugo 23ms to build so changes are instantly visible in the browser after hitting save.&lt;/p&gt;
+
+&lt;h2 id=&#34;theme:ec751d1c87f43ffcfd2b468cb8a0be6a&#34;&gt;Theme&lt;/h2&gt;
+
+&lt;p&gt;Hugo also has an impressive list of beautiful and free &lt;a href=&#34;http://themes.gohugo.io/&#34; target=&#34;_blank&#34;&gt;themes&lt;/a&gt; you can use to get up and running quickly. I decided that using the Jekyll importer and a pre-built theme would be too easy. So I decided to build my own theme in order to really learn how Hugo works and not just build my blog on a technology I don&amp;rsquo;t fully understand. I started by copying one of the existing themes, and modifying it to fit what I wanted, but ended up replacing most, if not all, of what I started with from the original theme. The decision to build my own theme did have its intended effect of forcing me to learn a significant amount about how Hugo works, and I feel much more comfortable digging into the innards of my site than I did when I was using Jekyll.&lt;/p&gt;
+
+&lt;p&gt;The colors are all based on Ethan Schoonover&amp;rsquo;s &lt;a href=&#34;http://ethanschoonover.com/solarized&#34; target=&#34;_blank&#34;&gt;Solarized&lt;/a&gt; theme. I have spent an unhealthy amount of time getting this color scheme working on every terminal and code editor I use, so it seemed natural that I should spend even more time styling my blog with the same colors.&lt;/p&gt;
+
+&lt;h2 id=&#34;codeship:ec751d1c87f43ffcfd2b468cb8a0be6a&#34;&gt;Codeship&lt;/h2&gt;
+
+&lt;p&gt;One of the benefits of using Jekyll was that GitHub Pages support it natively, you can read more about that &lt;a href=&#34;http://chadnierenhausen.com/post/about-this-blog---part-2#github:70e8f2fb385a2bc5383a41559af72e29&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. If you are using GitHub Pages to serve a statically generated site, you need to have two branches that you manage for your site:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;i class=&#34;fa fa-code-fork&#34;&gt;&lt;/i&gt; master - contains the code for the generator and is where you would work on new content.&lt;/li&gt;
+&lt;li&gt;&lt;i class=&#34;fa fa-code-fork&#34;&gt;&lt;/i&gt; gh-pages - contains the static generated content that will be served by GitHub Pages.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This extra branch management, while not terrible, didn&amp;rsquo;t sound like a lot of fun, so I decided to use &lt;a href=&#34;https://codeship.com/&#34; target=&#34;_blank&#34;&gt;Codeship&lt;/a&gt;, a Continuous Delivery service, to handle the building and publishing steps for the blog. After creating an account with Codeship I setup a new Go project and configured the integration with GitHub. When Codeship notices a change in the GitHub repository it spins up a Docker container with Go installed, and pulls the code from GitHub into the container. Control is then handed over to the following test script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go get -v github.com/spf13/hugo
+hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All this script does is download the latest version of Hugo and build the site. If the build fails, Codeship aborts and alerts me that the build failed. If it builds successfully, then Codeship goes on to its deploy step. One of the built-in deployment options Codeship offers is Amazon S3.&lt;/p&gt;
+
+&lt;h2 id=&#34;aws-s3:ec751d1c87f43ffcfd2b468cb8a0be6a&#34;&gt;AWS S3&lt;/h2&gt;
+
+&lt;p&gt;Amazon S3 buckets can easily be set up to host static web sites. After selecting a name for your bucket, you can select the option to &amp;lsquo;Enable website hosting&amp;rsquo; for the bucket then specify the index document, and error document. After setting the bucket up to host static content, provide Codeship with the needed information to access the bucket and it will automatically upload your generated site to the bucket when the build is successful.&lt;/p&gt;
+
+&lt;p&gt;I now have the exact same workflow for publishing the blog &lt;code&gt;git push&lt;/code&gt;, but I am using Hugo, GitHub, Codeship and AWS instead of Jekyll, Vagrant, GitHub and Github Pages.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>(Super) Dedup-er</title>
+      <link>http://chadnierenhausen.com/post/super-dedup-er</link>
+      <pubDate>Fri, 22 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://chadnierenhausen.com/post/super-dedup-er</guid>
+      <description>
+
+&lt;p&gt;I was recently asked to use JavaScript to solve the following problem:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Given an unsorted list of email addresses, write a function to remove all duplicates while maintaining the original ordering of the list. The solution should be able to run in well under a second on and list of 100,000 items with up to 50% duplication in the list.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;tl-dr:d47f84e108158a8ebc51aedb6b1b9d0a&#34;&gt;TL;DR&lt;/h2&gt;
+
+&lt;p&gt;Insertion into a binary tree is much faster than doubly nested loops and insertion into a hash table is faster yet. Who knew?
+Here is a live &lt;a href=&#34;http://chadnierenhausen.com/dedupe&#34;&gt;demo&lt;/a&gt; you can play with and the code that powers the demo can be found &lt;a href=&#34;https://gist.github.com/cnieren/eef196769425143c9bd1&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-easy-solution:d47f84e108158a8ebc51aedb6b1b9d0a&#34;&gt;The easy solution&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with the obvious answer, doubly nested loops! For each element in the list we visit every other element to see if we find a duplicate. 100,000 items sounds big, but modern computers are super-fast. Maybe it will be fast enough, let&amp;rsquo;s test.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function dedupe(arr) {
+    var i, j;
+
+    for(i = 0; i &amp;lt; arr.length; i++) {
+        for(j = i + 1; j &amp;lt; arr.length; j++) {
+            if(arr[i] === arr[j]) {
+                arr.splice(j, 1);
+            }
+        }
+    }
+
+    return arr;
+}
+
+var input = [1, 2, 0, 3, 4, 3, 2, 4, 1, 0]
+    output = [],
+    t0,
+    t1;
+
+console.log(&#39;Before:&#39;, input.length, input);
+
+t0 = performance.now();
+output = dedupe(input);
+t1 = performance.now();
+
+console.log(&#39;After:&#39;, output.length, output);
+console.log(&#39;Took:&#39;, (t1 - t1) / 1000.0, &#39;seconds&#39;);
+
+// Result
+// Before: 10 [1, 2, 0, 3, 4, 3, 2, 4, 1, 0]
+// After: 5 [1, 2, 0, 3, 4]
+// Took: 0.00013000000000000256 seconds.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For 10 items it&amp;rsquo;s definitely fast enough, but how will it work with 1,000, 10,000, or 100,000 items? I&amp;rsquo;m not about to type a 1,000 item array manually, so  the next thing we need is something to generate arrays for us to test with.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function generate(num) {
+    var i, result = [];
+
+    // Generate half the numbers
+    for(i = 0; i &amp;lt; num / 2; i++) {
+        result.push(getRandomNumber(1, num));
+    }
+
+    // Copy every other number to the end of the existing array
+    for(i = 0; i &amp;lt; num / 2; i += 2) {
+        result.push(result[i]);
+    }
+
+    // Shuffle the array
+    return shuffle(result);
+}
+
+// Get a random number between min and max (inclusive)
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Shuffle the list of numbers to distribute duplicates.
+function shuffle(arr) {
+    var i, tmp, rand;
+
+    for(i = arr.length - 1; i &amp;gt; 0; i--) {
+        rand = _getRandomNumber(0, i);
+        tmp = arr[i];
+        arr[i] = arr[rand];
+        arr[rand] = tmp;
+    }
+
+    return arr;
+}    
+
+var input = generate(100)
+    output = [],
+    t0,
+    t1;
+
+console.log(&#39;Before:&#39;, input.length);
+
+t0 = performance.now();
+output = dedupe(input);
+t1 = performance.now();
+
+console.log(&#39;After:&#39;, output.length);
+console.log(&#39;Took:&#39;, (t1 - t1) / 1000.0, &#39;seconds&#39;);
+
+// Results
+// Before: 100
+// After: 50
+// Took: 0.00014999999999999858 seconds.
+
+// Before: 1000
+// After: 500
+// Took: 0.00223 seconds.
+
+// Before: 10000
+// After: 5000
+// Took: 0.04742000000000001 seconds.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is looking really good. 10,000 items with 50% duplication only takes about 47 milliseconds, and one more zero can&amp;rsquo;t make that much of a difference can it? Wrong, 100,000 items takes 4.5 seconds on my fairly powerful desktop computer. For fun I added one more zero just to see how long it would take for 1,000,000 items. &lt;strong&gt;7.5 minutes!&lt;/strong&gt; We knew this wasn&amp;rsquo;t the best solution, doubly nested loops run in O(n&lt;sup&gt;2&lt;/sup&gt;) time, but they are really easy to write and as we showed, for small enough inputs, they work just fine.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-better-solution:d47f84e108158a8ebc51aedb6b1b9d0a&#34;&gt;The better solution&lt;/h2&gt;
+
+&lt;p&gt;Instead of searching for each item in the list, let&amp;rsquo;s use a binary tree to help. It isn&amp;rsquo;t the most intuitive solution, but it goes something like this: attempt to add every item in the list to a binary tree. While we are trying to find the location in the tree for a particular item, if we find that the tree already contains that item, report that it was a duplicate and don&amp;rsquo;t add it to the result. Inserting &lt;em&gt;n&lt;/em&gt; items into a binary tree on average runs in O(n log n) time. Just to drive this point home, for 20 items using the doubly nested loops  we would execute about 400 operations, using the tree method we would execute just 26! Here is the important code and the results of running the same tests as before using the tree solution.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var root = null;
+
+
+function dedupe(arr) {
+    var i, test;
+    var result = [];
+
+    for (i in arr) {
+        if(add(arr[i])) {
+            result.push(arr[i]);
+        }
+    }
+
+    return result;
+}
+
+function add(val) {
+    var current;
+
+    // Create new node
+    var newNode = {
+        data: val,
+        left: null,
+        right: null
+    };
+
+    // If the tree is empty, add the node to the root
+    if(!root) {
+        root = newNode;
+        return true;
+    }
+
+    // Use helper function to add node
+    return addHelper(root, newNode);
+}
+
+function addHelper(root, node) {
+    if (root.data === node.data) {
+        // Duplicate found
+        return false;
+    }
+
+    // Add to left sub-tree
+    if(node.data &amp;lt; root.data) {
+        if(!root.left) {
+            root.left = node;
+            return true;
+        }
+        return addHelper(root.left, node);
+    }
+
+    // Add to right sub-tree
+    if(!root.right) {
+        root.right = node;
+        return true;
+    }
+    return addHelper(root.right, node);
+}
+
+// Results
+// Before: 100
+// After: 50
+// Took: 0.001 seconds.
+
+// Before: 1000
+// After: 500
+// Took: 0.0009950000000000046 seconds.
+
+// Before: 10000
+// After: 5000
+// Took: 0.013000000000000015 seconds.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Clearly this method is faster (100,000 items with this code took 0.137 seconds), but even the doubly nested loops finished 10,000 items in under a second. The &amp;lsquo;just for fun&amp;rsquo; test from before of 1,000,000 items that took 7.5 minutes now only takes 1.5 seconds! But if we push it by just one more zero again to 10,000,000, we jump to 22.5 seconds.&lt;/p&gt;
+
+&lt;h2 id=&#34;even-bigger:d47f84e108158a8ebc51aedb6b1b9d0a&#34;&gt;Even bigger&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s assume we are trying to solve this problem in the same amount of time, but instead of only 100,000 items we had 100 million or 1 billion; how could we change our solution to work for these kinds of data sets? We could change the structure we insert all of the items into from a  binary tree to a hash table. In general, insertion into a hash table runs in O(1) or constant time, which would be possible to process in JavaScript on the client side in a reasonable time. Once we get into the billions it makes more sense to move the computation to the database. Database servers generally have significantly more processing power than a typical consumer computer, and they are optimized to run these kinds of computations.&lt;/p&gt;
+
+&lt;p&gt;You can find a demo of this code &lt;a href=&#34;http://chadnierenhausen.com/dedupe&#34;&gt;here&lt;/a&gt;, and the full version of the code that powers that demo can be found &lt;a href=&#34;https://gist.github.com/cnieren/eef196769425143c9bd1&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Vagrant Built My Homework</title>
+      <link>http://chadnierenhausen.com/post/a-vagrant-built-my-homework</link>
+      <pubDate>Tue, 10 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://chadnierenhausen.com/post/a-vagrant-built-my-homework</guid>
+      <description>
+
+&lt;h2 id=&#34;the-problem:d2989ac1479d191c349cb02f3e03212d&#34;&gt;The Problem&lt;/h2&gt;
+
+&lt;p&gt;This semester I am taking the &lt;a href=&#34;http://www.cs.arizona.edu/courses/cs452.html&#34; target=&#34;_blank&#34;&gt;Principals of Operating Systems&lt;/a&gt; course at the University of Arizona. In this class, students write a layered operating system that runs on top of an instructor-provided hardware abstraction called USLOSS. Students are given USLOSS as a compiled library that was built using the department&amp;rsquo;s Remote Access machine Lectura, which is currently running Ubuntu 12.04 LTS. My instructor also offers a compiled version of the USLOSS library for Mac computers.&lt;/p&gt;
+
+&lt;p&gt;The two computers that I spend the majority of my time working on are Windows computers, so the provided compiled versions of USLOSS won&amp;rsquo;t work for me natively. The first solution I came up with was to work on the project while connected to Lectura via SSH. I consider myself to be fairly competent when it comes to working inside of a Linux terminal, but I don&amp;rsquo;t want to &lt;strong&gt;have&lt;/strong&gt; to live inside of an SSH session with VIM or Emacs as my only good options for text editing. While I do know that VIM is just the bees-knees and is an incredibly capable editor, I would much rather have access to an editor like Sublime Text or Atom that gives me the best parts of VIM (hjkl movement and motions) without sacrificing the convenience of a modern editor to do the bulk of my work.&lt;/p&gt;
+
+&lt;p&gt;The second solution I came up with was to run an Ubuntu 12.04 Vagrant box to compile and run my project. This gives me the ability to edit my code using Sublime Text or Atom, while providing a platform to test on that is nearly identical to the one that will be used to grade my project, and thus helps me avoid the &amp;ldquo;it works on my computer but not on Lectura&amp;rdquo; panic that could result when, an hour before the project is due, I find out that there is some quirk of gcc on Ubuntu 12.04 that causes my code to not compile.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-i-solved-it:d2989ac1479d191c349cb02f3e03212d&#34;&gt;How I Solved It&lt;/h2&gt;
+
+&lt;p&gt;I first need to determine what version of Ubuntu and gcc Lectura is currently running. I can do that by running the following two commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cnieren@Lectura:~|$  lsb_release -dc
+Description:    Ubuntu 12.04.5 LTS
+Codename:       precise
+
+cnieren@Lectura:~|$  gcc --version
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next I need to find a Vagrant box for Ubuntu 12.04 (Precise 64). I found one &lt;a href=&#34;https://atlas.hashicorp.com/ubuntu/boxes/precise64&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;, and it just so happens that this is the official repository maintained by the fine folks at Ubuntu. Conveniently the version of gcc on Lectura is the same as the version of gcc on the ubuntu/precise64 Vagrant box!&lt;/p&gt;
+
+&lt;p&gt;To use this Vagrant box I add this Vagrantfile to the top level directory of my project:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = &amp;quot;ubuntu/precise64&amp;quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now when I run &lt;code&gt;vagrant up&lt;/code&gt; from any directory in my project, Vagrant will start up an Ubuntu 12.04 virtual machine and map my project directory from the host machine to the &lt;code&gt;/vagrant&lt;/code&gt; directory on the virtual machine. Running &lt;code&gt;vagrant ssh&lt;/code&gt; from a terminal window will open a connection to the virtual machine as expected. I can now open my project folder on the host machine using Sublime Text or Atom or any other editor I like, and as I modify files, they are automatically synced with the virtual machine.&lt;/p&gt;
+
+&lt;p&gt;The last thing I need to solve is how to get the USLOSS library included in my project. The instructions for getting this folder into my project on Lectura are to run &lt;code&gt;ln -s &amp;lt;remote usloss directory&amp;gt; &amp;lt;project directory&amp;gt;&lt;/code&gt;. This command is some Linux trickery which includes the contents of one folder in another without having to make a copy of the files directly. This folder has to be included in our projects in order for them to compile. To keep things in my Vagrant environment as close to the Lectura environment as possible, I copy the USLOSS folder from Lectura to the root directory of my project. Then from the terminal in my virtual machine,I run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;vagrant@vagrant-ubuntu-precise-64:/vagrant/phase1$ ln -s /vagrant/usloss /vagrant/phase1/usloss
+ln: failed to create symbolic link &#39;/vagrant/phase1/usloss&#39;: Protocol error
+vagrant@vagrant-ubuntu-precise-64:/vagrant/phase1$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is where running a Linux virtual machine on a Windows host machine with directory mapping from one to the other is a problem. That &lt;code&gt;ln&lt;/code&gt; command expects to find a unix file system, but instead gets a Windows file system and Windows doesn&amp;rsquo;t do soft links. So this isn&amp;rsquo;t going to work. The only option I have here is to copy the USLOSS folder directly into my phase1 folder and skip the soft links all together. This isn&amp;rsquo;t technically different from the soft link method except it uses more disk space because I have a bunch of copies of the USLOSS folder, one in each phase of the project.&lt;/p&gt;
+
+&lt;p&gt;There is one sneaky link left, if we look into the USLOSS folder we see the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cnieren@Lectura:/home/cs452/fall15/usloss/Linux|$  ls -lR
+.:
+total 8
+drwxrwxr-x 2 patrick 452f15 4096 Nov  4 10:18 include
+drwxrwxr-x 2 patrick 452f15 4096 Aug 25 22:32 lib
+
+./include:
+total 12
+-rw-rw-r-- 1 patrick 452f15    0 Aug 21 10:16 mmu.h
+-rw-rw-r-- 1 patrick 452f15 7699 Aug 21 10:16 usloss.h
+-rw-rw-r-- 1 patrick 452f15 1076 Aug 21 10:16 usyscall.h
+
+./lib:
+total 152
+-rw-rw-r-- 1 patrick 452f15 151002 Aug 21 10:16 libusloss2.9.a
+lrwxrwxrwx 1 patrick 452f15     14 Aug 21 10:16 libusloss.a -&amp;gt; libusloss2.9.a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That last line is a problem; it shows that the libusloss.a file is actually an alias (ln -s) for libusloss2.9.a. This trick lets us change the version of the USLOSS library we are using by changing the file with a version number, but  all references to libusloss.a will automagically update to the new version of the code. As we found before, the Windows file system doesn&amp;rsquo;t know how to handle soft links like this. Instead, I remove the libusloss.a link and rename libusloss2.9.a to libusloss.a and we are in business!&lt;/p&gt;
+
+&lt;p&gt;I have been using this setup for the first three phases of this project and it works wonderfully. To get started working, all I have to do is open my project in a text editor and run &lt;code&gt;vagrant up &amp;amp;&amp;amp; vagrant ssh&lt;/code&gt; in a terminal window. I can then work on the host Windows machine and as soon as I save changes they are synced to the Ubuntu virtual machine. At which point I can run &lt;code&gt;make&lt;/code&gt; or a test shell script to run my code. Most importantly, I have not had any problems getting my code to run on Lectura when I am ready to turn my project in.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About this Blog - Part 2</title>
+      <link>http://chadnierenhausen.com/post/about-this-blog---part-2</link>
+      <pubDate>Wed, 02 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://chadnierenhausen.com/post/about-this-blog---part-2</guid>
+      <description>
+
+&lt;h2 id=&#34;history:70e8f2fb385a2bc5383a41559af72e29&#34;&gt;History&lt;/h2&gt;
+
+&lt;p&gt;Before I try to explain the concept of containers, let me start with a story of how we got to where we are now with server technology. Lets assume you have a data-driven website you want to deploy, you recently graduated college so you don&amp;rsquo;t have much money so you buy one moderately powerful computer run the database and webserver on the same machine. Not only is this a security vulnerability, it doesn&amp;rsquo;t allow you to scale up if you start to get more traffic than the one computer can handle. As your number of users grow you decide you need to upgrade your infrastructure so you buy another machine, the original runs your database and you move the webserver to the new computer. Now instead of the one machine you had running at an average of 75% resource utilization, you have two machines running at 30% each.&lt;/p&gt;
+
+&lt;p&gt;Then one day someone posts one of your blogs on &lt;a href=&#34;http://slashdot.org/&#34; target=&#34;_blank&#34;&gt;SlashDot&lt;/a&gt; and the flood of users crashes your site. In a panic you buy 4 new computers one of them you make a secondary database and the other three are web servers this gets you back online, but after a few days the traffic to your site settles back down to the pre-SlashDot rate and you are now running 6 servers all at less than 10% resource utilization. Not ideal, but you should survive the next time a post hits the front page of SlashDot.&lt;/p&gt;
+
+&lt;p&gt;Now that your site is internet famous you decide you should have an email address me@my-domain.com, you could install the email server on one of the new web servers you just purchased, but you know best practice is to only have one role installed per server and you don&amp;rsquo;t want to risk another crash so you can&amp;rsquo;t remove a web server. Your only option is to buy another computer to host your email... Or is it?&lt;/p&gt;
+
+&lt;p&gt;This is where virtualization comes in, instead of buying a new moderately powerful computer for every service you want to run, buy a few really powerful computers and run separate virtual servers on that same set of hardware. Each virtual machine has its own operating system and is sandboxed off from the others so this isn&amp;rsquo;t a security vulnerability, and you can get more use out of the hardware that you buy. So you sell off your 6 old computers that were running your site and you buy 2 super powerful computers (virtual hosts) and build out your two databases, 4 web servers and your new email server as separate virtual machines, and now you are now more efficiently using your hardware.&lt;/p&gt;
+
+&lt;p&gt;Could we do better? Every virtual machine that is running on your virtual hosts has to have its own operating system installed. In most cases every service is running the same operating system. That means a significant portion of your resource load is being used by the same processes all running on different installs of the same operating system. What if we only needed one operating system installed on our virtual hosts and we could run our applications in sandboxed containers inside of that one OS?&lt;/p&gt;
+
+&lt;p&gt;This is where containers come in, now you buy your super powerful hardware, install one operating system on it, then package all of your services (web server, database, email server, etc.) into separate containers and run them on that one operating system. We are now using our hardware even more efficiently because we don&amp;rsquo;t have all those redundant operating systems doing the same thing across our virtual machines!&lt;/p&gt;
+
+&lt;h2 id=&#34;docker:70e8f2fb385a2bc5383a41559af72e29&#34;&gt;Docker&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.docker.com/&#34; target=&#34;_blank&#34;&gt;Docker&lt;/a&gt; containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, runtime, system tools, system libraries - anything you can install on a server. This guarantees that it will always run the same, regardless of the environment it is running in.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Docker is a utility that makes the configuration and management of containers a breeze. The actual technology that makes containers possible is split across a bunch of different libraries in the Linux kernel. Docker is and abstraction layer that sits on top of these libraries and presents a unified interface to create, manage and deploy application containers.&lt;/p&gt;
+
+&lt;p&gt;For this site, I&amp;rsquo;m not using Docker to publish this site, but I am using it to develop this site. Jekyll runs on a Linux stack, and most of the machines that I work on run Windows. Instead of having to install Linux on all of the machines I want to write blog posts on I use the Jekyll Docker container. The Jekyll Docker container has all of the dependencies needed to build and render a Jekyll site, all I need to provide is the content.&lt;/p&gt;
+
+&lt;p&gt;When I start the Jekyll Docker container I specify which directory contains my sites files, Docker maps this directory from my host machine to the Jekyll serve directory in the container. Once it&amp;rsquo;s up and running I can open the project in my favorite editor, point my browser to the web server running in the container and my workflow is no different than if everything was installed locally.&lt;/p&gt;
+
+&lt;h2 id=&#34;github:70e8f2fb385a2bc5383a41559af72e29&#34;&gt;Github&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt; is the largest code host on the planet with over 26.5 million repositories. Large or small, every repository comes with the same powerful tools. These tools are open to the community for public projects and secure for private projects.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;More specifically &lt;a href=&#34;https://pages.github.com/&#34; target=&#34;_blank&#34;&gt;GitHub Pages&lt;/a&gt; is where this blog is hosted. Every GitHub account has one GitHub Pages hosting account bundled with it. To use it, create a repository called username.github.io where username is your GitHub username. By default the site on the main branch of that repository will be hosted at username.github.io. Conveniently it will not only host static HTML sites, it knows how to host Jekyll sites as well. This means that when I want to publish a new post, all I have to do it check it into the main branch of the repository and it is automatically updated.&lt;/p&gt;
+
+&lt;p&gt;You can also use a custom domain instead of username.github.io. All you have to do is add a file called CNAME to the root of your repository with the custom URL in it, and add a CNAME record to your DNS host with the same URL.&lt;/p&gt;
+
+&lt;p&gt;Most of the technologies I have talked about in these two posts I have never used before. This simple blog has become a vehicle for me to learn many new technologies that I have been wanting to learn for a while, but never have had a project to use them with. I intend for this blog to continue to provide me with the drive to experiment and try out new things that I can&amp;rsquo;t justify using at work.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About this Blog - Part 1</title>
+      <link>http://chadnierenhausen.com/post/about-this-blog---part-1</link>
+      <pubDate>Thu, 18 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://chadnierenhausen.com/post/about-this-blog---part-1</guid>
+      <description>
+
+&lt;h2 id=&#34;jekyll:6d39c835cfbcc75eac2b8c9d33749a9d&#34;&gt;Jekyll&lt;/h2&gt;
+
+&lt;p&gt;About a year ago I learned about &lt;a href=&#34;http://www.staticgen.com/&#34; target=&#34;_blank&#34;&gt;Static Site Generators&lt;/a&gt;, systems that allow website developers to use templates, partials, data structures, and control flow statements to build websites, but don&amp;rsquo;t require a database backend. There is a build step that compiles all of the templates into simple HTML, CSS and JavaScript files. &lt;a href=&#34;http://octopress.org/&#34; target=&#34;_blank&#34;&gt;Octopress&lt;/a&gt; was the first generator that I got excited about, but by the time I got around to actually building this site Octopress was smack in the middle of moving to version 3.0, which is a backwards-compatibility breaking change and at the time of this writing there is no concrete release date.&lt;/p&gt;
+
+&lt;p&gt;Octopress, before version 3.0, is really just a set of plugins and some custom modules built on top of &lt;a href=&#34;http://jekyllrb.com/&#34; target=&#34;_blank&#34;&gt;Jekyll&lt;/a&gt;, which is the second most popular static site generator, and the one that I chose to power this site. I ultimately decided to go with Jekyll because of its great documentation, tons of plugins, and a very active community. The biggest problem I had with Jekyll is that it runs on Ruby, and I develop mainly on Windows. While it is possible to get Ruby running on Windows, I really wasn&amp;rsquo;t interested in that fight. Additionally I wanted to be able to work on the blog from multiple machines without having to get a Ruby environment configured on each of them.&lt;/p&gt;
+
+&lt;h2 id=&#34;vagrant:6d39c835cfbcc75eac2b8c9d33749a9d&#34;&gt;Vagrant&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.vagrantup.com/&#34; target=&#34;_blank&#34;&gt;Vagrant&lt;/a&gt; provides easy to configure, reproducible, and portable work environments built on top of industry-standard technology and controlled by a single consistent workflow to help maximize the productivity and flexibility of you and your team.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Vagrant is essentially a virtual machine management utility, but unlike VirtualBox or V-Shpere, you define the operating system, and any dependencies or utilities you want to exist on the virtual machine in code. This makes it incredibly easy for teams to share development environments because the configuration of the machine is defined in file(s) that are checked into your version control system. When a new developer checks out the code repo the Vagrant file and any provisioning scripts are included. Then to get the virtual machine running to start development all you have to do is run &lt;code&gt;vagrant up&lt;/code&gt; and off you go. I don&amp;rsquo;t think this blog will ever have a team behind it, the ease of getting running on a different machine was the main draw for me.&lt;/p&gt;
+
+&lt;p&gt;The first solution I came up with to skirt the issue with Ruby on Windows was to package Jekyll and all of its dependencies into an Ubuntu Vagrant box. It&amp;rsquo;s much simpler to set up a Ruby environment on Ubuntu, and I would only have to configure the environment once. The Vagrant file and the scripts to provision it could all be checked into a Git repository and shared across all the machines I want to develop on, and the only two tools I would need installed on the development machines are &lt;a href=&#34;https://www.virtualbox.org/&#34; target=&#34;_blank&#34;&gt;VirtualBox&lt;/a&gt; and Vagrant. There are a few gotcha&amp;rsquo;s when working with Jekyll in a Vagrant environment:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;jekyll serve&lt;/code&gt; starts a webserver and hosts your site on 127.0.0.1:4000. This works great when your web browser is running on the same machine as Jekyll, but not when Jekyll is inside of a Vagrant box. To get around this issue you can either
+
+&lt;ol&gt;
+&lt;li&gt;Add the line &lt;code&gt;host: 0.0.0.0&lt;/code&gt; to your _config.yml, which holds all of your site specific configuration settings or,&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;jekyll serve -h 0.0.0.0&lt;/code&gt;, which has the same effect, but lets you opt in at runtime instead of being the default configuration. This would be useful if at some point I wanted to work on this site from a Linux machine directly and didn&amp;rsquo;t want to run Jekyll through a virtual machine.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;As of Jekyll version 2.4 the serve command will watch the file system of your site and when it detects a change it will automatically rebuild the site and a refresh of the browser will show you the result. This works great on a *nix system, but when you run Jekyll in Vagrant on Windows, NTFS doesn&amp;rsquo;t provide the same file update notifications. The work around for this is to run &lt;code&gt;jekyll serve --force_polling&lt;/code&gt; which will force the Jekyll server to periodically poll the file system and rebuild the site when it detects a change.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;At this point we have Jekyll running inside of a Vagrant box, and all of the dependencies are hidden away inside of that container. The project is checked into a Git repository and any machine I want to develop on only needs to have Vagrant and VirtualBox installed. To work on the project all I need to do is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/cnieren/blag.git blag
+cd blag
+vagrant up
+vagrant ssh
+cd /site
+jekyll serve --force_polling &amp;lt;-h 0.0.0.0&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then point your browser to 0.0.0.0:4000 and you will see the generated result! Plus each time we make a change to a file and save it, the site is automatically rebuilt and a refresh of the browser window shows the changes.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://chadnierenhausen.com/post/hello-world</link>
+      <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://chadnierenhausen.com/post/hello-world</guid>
+      <description>
+
+&lt;p&gt;This is the start to my blogging journey. My intent is to use this as a place to post about the things I am working on, both to possibly help others out there on the internets, and to help future me when I run into a problem that I solved before, but have since forgotten what the solution was.&lt;/p&gt;
+
+&lt;p&gt;For my initial post, and to test the syntax highlighter, I want to post two little scripts I wrote to rig the results of a Kickball Prom King and Queen voting campaign.&lt;/p&gt;
+
+&lt;h2 id=&#34;round-1-small-make-sure-adam-and-whitney-win-small:cc9c8e333413a4745b7d887da8e27dea&#34;&gt;Round 1 &lt;small&gt;- Make sure Adam and Whitney WIN!!&lt;/small&gt;&lt;/h2&gt;
+
+&lt;p&gt;The first round was a multiple choice Survey Monkey poll that let you chose both King and Queen choices on the same page. So it was simply a matter of finding the two checkboxes on the page, selecting them and submitting the form. I used a Python library &lt;a href=&#34;https://github.com/hickford/MechanicalSoup&#34; target=&#34;_blank&#34;&gt;Mechanical Soup&lt;/a&gt; which opens a &amp;lsquo;browser object&amp;rsquo; points it to the specified url, finds the two inputs for the people I wanted to vote for and checks them, then submits the form. This doesn&amp;rsquo;t actually open a browser window, so it voted 439 times in about 7 minutes... I&amp;rsquo;m betting that they won&amp;rsquo;t run analytics here.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-py&#34;&gt;import mechanicalsoup
+
+for i in range(1, 439):
+    br = mechanicalsoup.Browser()
+
+    page = br.get(&#39;https://www.surveymonkey.com/r/SURVEY-ID&#39;)
+    form = page.soup.form
+
+    form.find(&amp;quot;input&amp;quot;, {&amp;quot;name&amp;quot;: &amp;quot;788222012[]&amp;quot;, &amp;quot;value&amp;quot;: &amp;quot;8873191506&amp;quot;})[&#39;checked&#39;] = &amp;quot;checked&amp;quot;
+
+
+    form.find(&amp;quot;input&amp;quot;, {&amp;quot;name&amp;quot;: &amp;quot;788223053[]&amp;quot;, &amp;quot;value&amp;quot;: &amp;quot;8873193002&amp;quot;})[&#39;checked&#39;] = &amp;quot;checked&amp;quot;
+
+    response = br.submit(form, page.url)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;round-2-small-they-can-not-stop-me-small:cc9c8e333413a4745b7d887da8e27dea&#34;&gt;Round 2 &lt;small&gt;- They can not stop me!&lt;/small&gt;&lt;/h2&gt;
+
+&lt;p&gt;When the people your script voted for win by a margin of 400 votes you don&amp;rsquo;t need analytics to prove that someone isn&amp;rsquo;t playing by the rules. For round two the survey creators split the voting across two pages, and enabled the &amp;lsquo;One vote per computer&amp;rsquo; option on survey monkey. What Survey Monkey does when this option is set, is to put a cookie on your machine after you complete the survey, so if you return to the survey again it gives you a &amp;lsquo;You can only vote once&amp;rsquo; message. Chrome Incognito (the Web Developer&amp;rsquo;s best friend) to the rescue!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://selenium-python.readthedocs.org/&#34; target=&#34;_blank&#34;&gt;Selenium&lt;/a&gt; is a framework for automating testing of web user interfaces, and conveniently has a Python library. I also wanted to try and reduce the chance that if they did run analytics that they would see 70 submissions all at the same time. So I decide to try and make the votes a little more random, this script will vote once randomly every 15 - 45 minutes and it only will do that up to 70 times, or as many times as it can before the survey closes. This one actually opens a Chrome Incognito window, points it to the survey URL votes for the King, moves to the second page and votes for the Queen, submits the form and closes the browser.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-py&#34;&gt;import time
+import random
+from selenium import webdriver
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument(&amp;quot;--incognito&amp;quot;)
+
+for i in range(1, 70):
+    wait = random.randint(15, 45) * 60
+    time.sleep(wait)
+    driver = webdriver.Chrome(chrome_options=chrome_options)
+    driver.get(&amp;quot;https://www.surveymonkey.com/r/SURVEY-ID&amp;quot;)
+
+    whitney = driver.find_element_by_css_selector(&amp;quot;label[for=&#39;793400743_8907718403&#39;]&amp;quot;)
+    whitney.click()
+    whitney.submit()
+
+    adam = driver.find_element_by_css_selector(&amp;quot;label[for=&#39;793403175_8907737022&#39;]&amp;quot;)
+    adam.click()
+    done = driver.find_element_by_class_name(&amp;quot;done-button&amp;quot;)
+    done.click()
+    driver.close()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;round-3-small-they-can-stop-me-small:cc9c8e333413a4745b7d887da8e27dea&#34;&gt;Round 3 &lt;small&gt;- They can stop me :(&lt;/small&gt;&lt;/h3&gt;
+
+&lt;p&gt;For round three they decided to have everyone vote on the fields using &amp;lsquo;Physical Paper&amp;rsquo; and somehow our whole team didn&amp;rsquo;t know that this was happening and Adam and Whitney didn&amp;rsquo;t make it to the final four. Congratulations to your 2015 Prom King and Queen Paul and Patrick.&lt;/p&gt;
+
+&lt;div id=&#34;fb-root&#34; markdown=&#34;0&#34;&gt;&lt;/div&gt;&lt;script&gt;(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = &#34;//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.3&#34;;  fjs.parentNode.insertBefore(js, fjs);}(document, &#39;script&#39;, &#39;facebook-jssdk&#39;));&lt;/script&gt;&lt;div class=&#34;fb-video&#34; data-allowfullscreen=&#34;true&#34; data-href=&#34;/kaylahazzard12/videos/vb.712569687/10153780970324688/?type=1&#34;&gt;&lt;div class=&#34;fb-xfbml-parse-ignore&#34;&gt;&lt;blockquote cite=&#34;/kaylahazzard12/videos/10153780970324688/&#34;&gt;&lt;a href=&#34;http://chadnierenhausen.com/kaylahazzard12/videos/10153780970324688/&#34;&gt;&lt;/a&gt;&lt;p&gt;First dance between Paul Frost (Prom King) and Patrick Edwards (Prom Queen).&lt;/p&gt;Posted by &lt;a href=&#34;https://www.facebook.com/kaylahazzard12&#34;&gt;Kayla Hazzard&lt;/a&gt; on Saturday, May 9, 2015&lt;/blockquote&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This was the first web automation attempt I have ever made, and the first project (if you can call it that) I have ever written in Python. It was a fun excuse to try and game a system that didn&amp;rsquo;t really matter much to anyone, and I learned some things along the way. I&amp;rsquo;m also starting to suspect that you really can solve most programming problems in Python with a simple import statement.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

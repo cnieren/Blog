@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:title" content="(Super) Dedup-er &middot; Chad Nierenhausen ">
+        <meta property="og:site_name" content="Chad Nierenhausen"/>
+        <meta property="og:description" content="Stable deduplication of an unsorted collection of email addresses.">
+        <meta property="og:url" content="http://chadnierenhausen.com/post/super-dedup-er" />
+        <meta property="og:locale" content="en-us">
+        <meta name="author" content="Chad Nierenhausen">
+        <meta name="description" content="Stable deduplication of an unsorted collection of email addresses.">
+        <meta name="keywords" content="home, blog, chad, nierenhausen, chad nierenhausen">
+        <meta name="generator" content="Hugo 0.15" />
+        <link rel="icon" href="http://chadnierenhausen.com/assets/favicon.ico" type="image/x-icon">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://chadnierenhausen.com/css/highlightjs-solarized-dark.css">
+        <link rel="stylesheet" href="http://chadnierenhausen.com/css/styles.css">
+        
+        <title>
+            
+                (Super) Dedup-er &middot; Chad Nierenhausen
+            
+        </title>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <nav>
+                    <ul><li><a href="http://chadnierenhausen.com/">home</a></li><li><a href="http://chadnierenhausen.com/resume/">resume</a></li></ul>
+                </nav>
+                
+                <p class="thumbnail"><i class="fa fa-code fa-3x"></i></p>
+                <h1 class="title">(Super) Dedup-er</h1>
+                <p class="description">Stable deduplication of an unsorted collection of email addresses.</p>
+                <aside>
+                    <p>by Chad Nierenhausen on Fri, Jan 22, 2016</p>
+                    <p>6 minute read</p>
+                </aside>
+                
+            </header>
+
+<article class="article-content">
+    
+
+<p>I was recently asked to use JavaScript to solve the following problem:</p>
+
+<blockquote>
+<p>Given an unsorted list of email addresses, write a function to remove all duplicates while maintaining the original ordering of the list. The solution should be able to run in well under a second on and list of 100,000 items with up to 50% duplication in the list.</p>
+</blockquote>
+
+<h2 id="tl-dr:d47f84e108158a8ebc51aedb6b1b9d0a">TL;DR</h2>
+
+<p>Insertion into a binary tree is much faster than doubly nested loops and insertion into a hash table is faster yet. Who knew?
+Here is a live <a href="/dedupe">demo</a> you can play with and the code that powers the demo can be found <a href="https://gist.github.com/cnieren/eef196769425143c9bd1" target="_blank">here</a>.</p>
+
+<h2 id="the-easy-solution:d47f84e108158a8ebc51aedb6b1b9d0a">The easy solution</h2>
+
+<p>Let&rsquo;s start with the obvious answer, doubly nested loops! For each element in the list we visit every other element to see if we find a duplicate. 100,000 items sounds big, but modern computers are super-fast. Maybe it will be fast enough, let&rsquo;s test.</p>
+
+<pre><code class="language-js">function dedupe(arr) {
+    var i, j;
+
+    for(i = 0; i &lt; arr.length; i++) {
+        for(j = i + 1; j &lt; arr.length; j++) {
+            if(arr[i] === arr[j]) {
+                arr.splice(j, 1);
+            }
+        }
+    }
+
+    return arr;
+}
+
+var input = [1, 2, 0, 3, 4, 3, 2, 4, 1, 0]
+    output = [],
+    t0,
+    t1;
+
+console.log('Before:', input.length, input);
+
+t0 = performance.now();
+output = dedupe(input);
+t1 = performance.now();
+
+console.log('After:', output.length, output);
+console.log('Took:', (t1 - t1) / 1000.0, 'seconds');
+
+// Result
+// Before: 10 [1, 2, 0, 3, 4, 3, 2, 4, 1, 0]
+// After: 5 [1, 2, 0, 3, 4]
+// Took: 0.00013000000000000256 seconds.
+</code></pre>
+
+<p>For 10 items it&rsquo;s definitely fast enough, but how will it work with 1,000, 10,000, or 100,000 items? I&rsquo;m not about to type a 1,000 item array manually, so  the next thing we need is something to generate arrays for us to test with.</p>
+
+<pre><code class="language-js">function generate(num) {
+    var i, result = [];
+
+    // Generate half the numbers
+    for(i = 0; i &lt; num / 2; i++) {
+        result.push(getRandomNumber(1, num));
+    }
+
+    // Copy every other number to the end of the existing array
+    for(i = 0; i &lt; num / 2; i += 2) {
+        result.push(result[i]);
+    }
+
+    // Shuffle the array
+    return shuffle(result);
+}
+
+// Get a random number between min and max (inclusive)
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Shuffle the list of numbers to distribute duplicates.
+function shuffle(arr) {
+    var i, tmp, rand;
+
+    for(i = arr.length - 1; i &gt; 0; i--) {
+        rand = _getRandomNumber(0, i);
+        tmp = arr[i];
+        arr[i] = arr[rand];
+        arr[rand] = tmp;
+    }
+
+    return arr;
+}    
+
+var input = generate(100)
+    output = [],
+    t0,
+    t1;
+
+console.log('Before:', input.length);
+
+t0 = performance.now();
+output = dedupe(input);
+t1 = performance.now();
+
+console.log('After:', output.length);
+console.log('Took:', (t1 - t1) / 1000.0, 'seconds');
+
+// Results
+// Before: 100
+// After: 50
+// Took: 0.00014999999999999858 seconds.
+
+// Before: 1000
+// After: 500
+// Took: 0.00223 seconds.
+
+// Before: 10000
+// After: 5000
+// Took: 0.04742000000000001 seconds.
+</code></pre>
+
+<p>This is looking really good. 10,000 items with 50% duplication only takes about 47 milliseconds, and one more zero can&rsquo;t make that much of a difference can it? Wrong, 100,000 items takes 4.5 seconds on my fairly powerful desktop computer. For fun I added one more zero just to see how long it would take for 1,000,000 items. <strong>7.5 minutes!</strong> We knew this wasn&rsquo;t the best solution, doubly nested loops run in O(n<sup>2</sup>) time, but they are really easy to write and as we showed, for small enough inputs, they work just fine.</p>
+
+<h2 id="the-better-solution:d47f84e108158a8ebc51aedb6b1b9d0a">The better solution</h2>
+
+<p>Instead of searching for each item in the list, let&rsquo;s use a binary tree to help. It isn&rsquo;t the most intuitive solution, but it goes something like this: attempt to add every item in the list to a binary tree. While we are trying to find the location in the tree for a particular item, if we find that the tree already contains that item, report that it was a duplicate and don&rsquo;t add it to the result. Inserting <em>n</em> items into a binary tree on average runs in O(n log n) time. Just to drive this point home, for 20 items using the doubly nested loops  we would execute about 400 operations, using the tree method we would execute just 26! Here is the important code and the results of running the same tests as before using the tree solution.</p>
+
+<pre><code class="language-js">var root = null;
+
+
+function dedupe(arr) {
+    var i, test;
+    var result = [];
+
+    for (i in arr) {
+        if(add(arr[i])) {
+            result.push(arr[i]);
+        }
+    }
+
+    return result;
+}
+
+function add(val) {
+    var current;
+
+    // Create new node
+    var newNode = {
+        data: val,
+        left: null,
+        right: null
+    };
+
+    // If the tree is empty, add the node to the root
+    if(!root) {
+        root = newNode;
+        return true;
+    }
+
+    // Use helper function to add node
+    return addHelper(root, newNode);
+}
+
+function addHelper(root, node) {
+    if (root.data === node.data) {
+        // Duplicate found
+        return false;
+    }
+
+    // Add to left sub-tree
+    if(node.data &lt; root.data) {
+        if(!root.left) {
+            root.left = node;
+            return true;
+        }
+        return addHelper(root.left, node);
+    }
+
+    // Add to right sub-tree
+    if(!root.right) {
+        root.right = node;
+        return true;
+    }
+    return addHelper(root.right, node);
+}
+
+// Results
+// Before: 100
+// After: 50
+// Took: 0.001 seconds.
+
+// Before: 1000
+// After: 500
+// Took: 0.0009950000000000046 seconds.
+
+// Before: 10000
+// After: 5000
+// Took: 0.013000000000000015 seconds.
+</code></pre>
+
+<p>Clearly this method is faster (100,000 items with this code took 0.137 seconds), but even the doubly nested loops finished 10,000 items in under a second. The &lsquo;just for fun&rsquo; test from before of 1,000,000 items that took 7.5 minutes now only takes 1.5 seconds! But if we push it by just one more zero again to 10,000,000, we jump to 22.5 seconds.</p>
+
+<h2 id="even-bigger:d47f84e108158a8ebc51aedb6b1b9d0a">Even bigger</h2>
+
+<p>Let&rsquo;s assume we are trying to solve this problem in the same amount of time, but instead of only 100,000 items we had 100 million or 1 billion; how could we change our solution to work for these kinds of data sets? We could change the structure we insert all of the items into from a  binary tree to a hash table. In general, insertion into a hash table runs in O(1) or constant time, which would be possible to process in JavaScript on the client side in a reasonable time. Once we get into the billions it makes more sense to move the computation to the database. Database servers generally have significantly more processing power than a typical consumer computer, and they are optimized to run these kinds of computations.</p>
+
+<p>You can find a demo of this code <a href="/dedupe">here</a>, and the full version of the code that powers that demo can be found <a href="https://gist.github.com/cnieren/eef196769425143c9bd1" target="_blank">here</a>.</p>
+
+    <aside class="meta">
+        <p>
+            <i class="fa fa-tags"></i> algorithm, computer science, javascript
+        </p>
+    </aside>
+    <section class="next-prev">
+        
+        <span class="prev">
+            <a href="http://chadnierenhausen.com/post/a-vagrant-built-my-homework"><i class="fa fa-arrow-left"></i> A Vagrant Built My Homework</a>
+            <br /><span>published Tue, Nov 10, 2015</span>
+        </span>
+        
+
+        
+        <span class="next">
+            <a href="http://chadnierenhausen.com/post/big-changes">Big Changes <i class="fa fa-arrow-right"></i></a>
+            <br /><span>published Tue, Mar 08, 2016</span>
+        </span>
+        
+      </section>
+</article>
+        </div>
+
+        <footer>
+            <p class="left">Made with <i class="fa fa-heart"></i> by Chad Nierenhausen </p>
+            <p class="right">&lt;/&gt; on <a href="http://github.com/cnieren">Github</a> <i class="fa fa-github-alt"></i></p>
+        </footer>
+
+        <script src="http://chadnierenhausen.com/js/highlight.pack.js"></script>
+        <script src="http://chadnierenhausen.com/js/site.js"></script>
+
+        
+
+        
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-64536435-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+        
+    </body>
+</html>
+

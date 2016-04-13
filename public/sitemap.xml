@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://chadnierenhausen.com/</loc>
+    <lastmod>2016-03-08T13:06:06-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://chadnierenhausen.com/post/big-changes</loc>
+    <lastmod>2016-03-08T13:06:06-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://chadnierenhausen.com/dedupe/</loc>
+    <lastmod>2016-02-03T17:42:23-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://chadnierenhausen.com/resume/</loc>
+    <lastmod>2016-02-03T16:42:22-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://chadnierenhausen.com/about/</loc>
+    <lastmod>2016-02-03T16:39:50-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://chadnierenhausen.com/post/super-dedup-er</loc>
+    <lastmod>2016-01-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://chadnierenhausen.com/post/a-vagrant-built-my-homework</loc>
+    <lastmod>2015-11-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://chadnierenhausen.com/post/about-this-blog---part-2</loc>
+    <lastmod>2015-09-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://chadnierenhausen.com/post/about-this-blog---part-1</loc>
+    <lastmod>2015-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://chadnierenhausen.com/post/hello-world</loc>
+    <lastmod>2015-05-13T00:00:00+00:00</lastmod>
+  </url>
+  
+</urlset>

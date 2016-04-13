@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Chad Nierenhausen</title>
+    <link>http://chadnierenhausen.com/page/</link>
+    <description>Recent content in Pages on Chad Nierenhausen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Feb 2016 17:42:23 -0700</lastBuildDate>
+    <atom:link href="http://chadnierenhausen.com/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>(Super) Dedup-er</title>
+      <link>http://chadnierenhausen.com/dedupe/</link>
+      <pubDate>Wed, 03 Feb 2016 17:42:23 -0700</pubDate>
+      
+      <guid>http://chadnierenhausen.com/dedupe/</guid>
+      <description>&lt;section&gt;
+    &lt;h3&gt;Instrictions&lt;/h3&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Select the type of item you want to generate&lt;/li&gt;
+        &lt;li&gt;Enter the number of items to generate, between 1 and 100,000&lt;/li&gt;
+        &lt;li&gt;Enter the percent of that total that should be duplicated, between .1 and .5&lt;/li&gt;
+        &lt;li&gt;Hit Go!&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;The specified number of items will be generated with the specified percent of duplicates. That list will then have all duplicates removed, while maintaining the original ordering of the list. You will be shown the original list that was generated, the list with duplicates removed, and some stats about how long it took to remove the duplicates, the original number of items, and the number of duplicates that were in the list.&lt;/p&gt;
+    &lt;hr /&gt;
+
+    &lt;div class=&#34;flex&#34; id=&#34;form&#34;&gt;
+        &lt;div class=&#34;row center&#34;&gt;
+            &lt;div class=&#34;flex-item&#34;&gt;
+                &lt;label for=&#34;dataType&#34;&gt;Item Type&lt;/label&gt;
+                &lt;select class=&#34;form-control&#34; id=&#34;dataType&#34; name=&#34;dataType&#34;&gt;
+                    &lt;option value=&#34;email&#34; selected=&#34;selected&#34;&gt;Emails&lt;/option&gt;
+                    &lt;option value=&#34;number&#34;&gt;Numbers&lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row around bottom&#34;&gt;
+            &lt;span class=&#34;flex-item&#34;&gt;
+                &lt;label for=&#34;number&#34;&gt;Number of Items&lt;/label&gt;
+                &lt;input class=&#34;form-control&#34; id=&#34;number&#34; type=&#34;number&#34; name=&#34;number&#34; min=&#34;0&#34; max=&#34;100000&#34; value=&#34;10&#34;&gt;&lt;/input&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;flex-item&#34;&gt;
+                &lt;label for=&#34;percent&#34;&gt;Percent duplication&lt;/label&gt;
+                &lt;input class=&#34;form-control&#34; id=&#34;percent&#34; type=&#34;number&#34; name=&#34;percent&#34; min=&#34;0&#34; max=&#34;0.5&#34; value=&#34;0.25&#34; step=&#34;.05&#34;&gt;&lt;/input&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;flex-item&#34;&gt;
+                &lt;button class=&#34;btn&#34; id=&#34;go&#34;&gt;Go!&lt;/button&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;script id=&#34;error-msg-template&#34; type=&#34;text/x-handlebars-template&#34;&gt;
+    &lt;div class=&#34;alert alert-danger&#34;&gt;{{msg}}&lt;/div&gt;
+&lt;/script&gt;
+&lt;script id=&#34;result-template&#34; type=&#34;text/x-handlebars-template&#34;&gt;
+    &lt;div class=&#34;flex&#34;&gt;
+        &lt;div id=&#34;result&#34; class=&#34;row around top&#34;&gt;
+            &lt;div&gt;
+                &lt;h3&gt;Input&lt;/h3&gt;
+                &lt;ul&gt;
+                    {{#each input}}
+                    &lt;li&gt;{{this}}&lt;/li&gt;
+                    {{/each}}
+                &lt;ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;Output&lt;/h3&gt;
+                &lt;ul&gt;
+                    {{#each output}}
+                    &lt;li&gt;{{this}}&lt;/li&gt;
+                    {{/each}}
+                &lt;ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;Stats&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Input size: {{stats.inSize}}&lt;/li&gt;
+                    &lt;li&gt;Output size: {{stats.outSize}}&lt;/li&gt;
+                    &lt;li&gt;Time spent (seconds): {{stats.time}}&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Resume</title>
+      <link>http://chadnierenhausen.com/resume/</link>
+      <pubDate>Wed, 03 Feb 2016 16:42:22 -0700</pubDate>
+      
+      <guid>http://chadnierenhausen.com/resume/</guid>
+      <description>&lt;div class=&#34;resume&#34;&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Chad Nierenhausen&lt;br /&gt;&lt;small&gt;Full Stack Developer&lt;/small&gt;&lt;/h2&gt;
+      &lt;span class=&#34;pdf&#34;&gt;&lt;a href=&#34;&#34; target=&#34;_blank&#34;&gt;&lt;i class=&#34;fa fa-file-pdf-o&#34;&gt;&lt;/i&gt; PDF&lt;/a&gt;&lt;/span&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+        &lt;h3&gt;Work Experience&lt;/h3&gt;
+        &lt;h4&gt;Application Systems Analyst, Principal&lt;/h4&gt;
+        &lt;article&gt;
+          &lt;h5&gt;University of Arizona - Residence Life &lt;small&gt;2015 - Present&lt;/small&gt;&lt;/h5&gt;
+          &lt;ul&gt;
+            &lt;li&gt;Leading the migration of our Production and Development Housing system from on premises to AWS.&lt;/li&gt;
+            &lt;li&gt;Led Residence Life team working with Systems Administrator, Senior and University Network teams to organize and implement our Virtual Private Cloud in Amazon Web Services with a VPN connection to campus to support current needs and allow for future growth.&lt;/li&gt;
+            &lt;li&gt;Appointed member of eight-person search committee tasked with hiring the new Assistant Director of Technology Services in Residence Life.&lt;/li&gt;
+            &lt;li&gt;Direct supervisor for two Student IT Support Technicians. Solely responsible for screening, interviewing, and hiring applicants.&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/article&gt;
+        &lt;h4&gt;Application Systems Analyst&lt;/h4&gt;
+        &lt;article&gt;
+          &lt;h5&gt;University of Arizona - Residence Life &lt;small&gt;2011 - 2015&lt;/small&gt;&lt;/h5&gt;
+          &lt;ul&gt;
+            &lt;li&gt;Work with team members to research plan and implement the migration of new and legacy systems from on premise datacenters to AWS managed infrastructure.&lt;/li&gt;
+            &lt;li&gt;Technical Lead of five-person project team tasked with replacing the existing out-of-date student housing system used by Residence Life with [a] new streamlined process developed in conjunction with vendor company StarRez. Supervised the integration of the new housing system with existing campus partners and served as liaison between The University of Arizona and StarRez.&lt;/li&gt;
+            &lt;li&gt;Write and maintain C# applications used to manage 6,000+ graduate and undergraduate students per year in the University of Arizona housing system.&lt;/li&gt;
+            &lt;li&gt;Designed and built an innovative self-assign system that allows 6,000+ undergraduate and graduate students to self-select where they want to live on campus. In the Fall 2013 semester, the system was accessed by and able to sustain 2,500 users in the first 15 minutes it was live.&lt;/li&gt;
+            &lt;li&gt;Worked with the Residence Life Marketing Department to completely redesign and rebuild the Residence Life website. Served as the sole developer in charge of migrating the 25,000 page statically-generated PHP site to a full-featured CMS with a custom theme and over fifteen custom-built modules.&lt;/li&gt;
+            &lt;li&gt;Collaborated with the Marketing and Residential Education Departments to design and build a mobile-first responsive website used in the winning bid by the University of Arizona to host the AIMHO 2015 Conference.&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/article&gt;
+        &lt;h4&gt;Web Developer&lt;/h4&gt;
+        &lt;article&gt;
+          &lt;h5&gt;Twinwicks - Freelance &lt;small&gt;2012 - Present&lt;/small&gt;&lt;/h5&gt;
+          &lt;ul&gt;
+            &lt;li&gt;Heavily modified the frontend and administrative interface of the Javo House Wordpress theme to reflect the needs of the &lt;a  _target=&#34;_blank&#34; href=&#34;http://crunkletonassociates.com/&#34; target=&#34;_blank&#34;&gt;Crunkleton Commercial Real Estate Group&lt;/a&gt;.&lt;/li&gt;
+            &lt;li&gt;Developed and maintain a custom website for Arizona State Representative &lt;a href=&#34;http://steeleforhouse.com/&#34; target=&#34;_blank&#34;&gt;Victoria Steele&#39;s&lt;/a&gt; successful campaign to her first elected position within the Arizona House of Representatives.&lt;/li&gt;
+            &lt;li&gt;Developed a custom WordPress -based ecommerce site for local music publisher &lt;a href=&#34;http://bpmpublications.com/&#34; target=&#34;_blank&#34;&gt;BPM Publications&lt;/a&gt;.&lt;/li&gt;
+            &lt;li&gt;Constructed a custom portfolio site for local makeup artist Kelly Estes of &lt;a href=&#34;http://ladylovelymakeup.com/&#34; target=&#34;_blank&#34;&gt;Lady Lovely Makeup Artistry&lt;/a&gt;. The site features a custom-built live Instagram feed using the OAuth 2.0 protocol and Instagram&#39;s API.&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/article&gt;
+        &lt;h4&gt;Support Systems Analyst&lt;/h4&gt;
+        &lt;article&gt;
+          &lt;h5&gt;University of Arizona - Residence Life &lt;small&gt;2010 - 2011&lt;/small&gt;&lt;/h5&gt;
+          &lt;ul&gt;
+            &lt;li&gt;Built, tested and maintained fifteen-plus physical servers spread across three separate locations on campus used to host more than forty virtual servers that support the professional and student staff of Residence Life.&lt;/li&gt;
+            &lt;li&gt;Maintained and updated twenty-three dorm-specific websites while working with the director of each hall to implement custom Drupal modules to support hall programs and initiatives.&lt;/li&gt;
+            &lt;li&gt;Designed, developed and custom built three electronic displays for meeting rooms to replace the old paper inserts. The displays are updated by web-based tool automatically updates room availability using information from Exchange calendars as meetings are created and canceled.&lt;/li&gt;
+            &lt;li&gt;Updated and fine-tuned software and hardware used to monitor server room conditions and server uptimes across three different locations on campus.&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/article&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+      &lt;h3&gt;Work Experience&lt;/h3&gt;
+      &lt;div class=&#34;skills&#34;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;HTML5&lt;/li&gt;
+          &lt;li&gt;CSS3&lt;/li&gt;
+          &lt;li&gt;JavaScript&lt;/li&gt;
+          &lt;li&gt;C#&lt;/li&gt;
+          &lt;li&gt;PHP&lt;/li&gt;
+          &lt;li&gt;Java&lt;/li&gt;
+          &lt;li&gt;C&lt;/li&gt;
+          &lt;li&gt;Python&lt;/li&gt;
+          &lt;li&gt;.Net Framework&lt;/li&gt;
+          &lt;li&gt;Microsoft MVC&lt;/li&gt;
+          &lt;li&gt;Twitter Bootstrap&lt;/li&gt;
+          &lt;li&gt;jQuery&lt;/li&gt;
+          &lt;li&gt;Wordpress&lt;/li&gt;
+          &lt;li&gt;Jekyll&lt;/li&gt;
+          &lt;li&gt;Drupal&lt;/li&gt;
+          &lt;li&gt;Hugo&lt;/li&gt;
+          &lt;li&gt;Visual Studio&lt;/li&gt;
+          &lt;li&gt;Microsoft SQL&lt;/li&gt;
+          &lt;li&gt;Team Foundation Studio&lt;/li&gt;
+          &lt;li&gt;GitHub&lt;/li&gt;
+          &lt;li&gt;Vagrant&lt;/li&gt;
+          &lt;li&gt;Docker&lt;/li&gt;
+          &lt;li&gt;Windows&lt;/li&gt;
+          &lt;li&gt;Linux&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+      &lt;h3&gt;Education&lt;/h3&gt;
+      &lt;h4&gt;University of Arizona&lt;/h4&gt;
+      &lt;article&gt;
+        &lt;h5&gt;Computer Science&lt;small&gt;2007 - Present&lt;/small&gt;&lt;/h5&gt;
+        &lt;p&gt;Actively pursuing a Bachelor of Science in Computer Science while working full time for the University of Arizona.&lt;/p&gt;
+      &lt;/article&gt;
+      &lt;h4&gt;Pima Community College&lt;/h4&gt;
+      &lt;article&gt;
+        &lt;h5&gt;Computer Science&lt;small&gt;2005 - 2007&lt;/small&gt;&lt;/h5&gt;
+        &lt;p&gt;Completed two years of general and Computer Science -specific coursework before transferring to The University of Arizona&lt;/p&gt;
+      &lt;/article&gt;
+    &lt;/section&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://chadnierenhausen.com/about/</link>
+      <pubDate>Wed, 03 Feb 2016 16:39:50 -0700</pubDate>
+      
+      <guid>http://chadnierenhausen.com/about/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
