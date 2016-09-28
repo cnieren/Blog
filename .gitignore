@@ -29,3 +29,6 @@ Gemfile.lock
 
 # Vagrant
 .vagrant
+
+# Generated Content
+public/
