@@ -14,19 +14,28 @@ slug = "resume"
     </section>
     <section>
         <h3>Work Experience</h3>
+        <h4>Software Development Engineer</h4>
+        <article>
+          <h5>SCI Solutions<small>July, 2016 - Present</small></h5>
+          <ul>
+            <li>Full Stack developer, working with a small agile team to maintain and improve a SaaS application, that allows Physicians Offices and Hospitals to send and receive electronic orders for medical procedures.</li>
+            <li>Working to improve unit test code coverage to improve developer confidence with each release and minimize future regression.</li>
+            <li>Using progressive enhancement to improve accessibility and bring product in-line with modern browser capabilities.</li>
+          </ul>
+        </article>
         <h4>Application Systems Analyst, Principal</h4>
         <article>
-          <h5>University of Arizona - Residence Life <small>2015 - Present</small></h5>
+          <h5>University of Arizona - Residence Life <small>Oct, 2015 - July, 2016</small></h5>
           <ul>
-            <li>Leading the migration of our Production and Development Housing system from on premises to AWS.</li>
+            <li>Lead the migration of our Production and Development Housing system from on-premises to AWS.</li>
             <li>Led Residence Life team working with Systems Administrator, Senior and University Network teams to organize and implement our Virtual Private Cloud in Amazon Web Services with a VPN connection to campus to support current needs and allow for future growth.</li>
             <li>Appointed member of eight-person search committee tasked with hiring the new Assistant Director of Technology Services in Residence Life.</li>
-            <li>Direct supervisor for two Student IT Support Technicians. Solely responsible for screening, interviewing, and hiring applicants.</li>
+            <li>Functioned as the direct supervisor for two Student IT Support Technicians. Solely responsible for screening, interviewing, and hiring applicants.</li>
           </ul>
         </article>
         <h4>Application Systems Analyst</h4>
         <article>
-          <h5>University of Arizona - Residence Life <small>2011 - 2015</small></h5>
+          <h5>University of Arizona - Residence Life <small>August, 2011 - Oct, 2015</small></h5>
           <ul>
             <li>Work with team members to research plan and implement the migration of new and legacy systems from on premise datacenters to AWS managed infrastructure.</li>
             <li>Technical Lead of five-person project team tasked with replacing the existing out-of-date student housing system used by Residence Life with [a] new streamlined process developed in conjunction with vendor company StarRez. Supervised the integration of the new housing system with existing campus partners and served as liaison between The University of Arizona and StarRez.</li>
