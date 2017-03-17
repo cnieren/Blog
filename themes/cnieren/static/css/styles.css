@@ -20,35 +20,51 @@ aside {
     text-align: center;
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6,
-h1, h2, h3, h4, h5, h6 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     line-height: 1.1;
     color: #cb4b16;
 }
 
-.h1, h1 {
+.h1,
+h1 {
     font-size: 36px;
 }
 
-.h2, h2 {
+.h2,
+h2 {
     font-size: 30px;
 }
 
-.h3, h3 {
+.h3,
+h3 {
     font-size: 24px;
 }
 
-.h4, h4 {
+.h4,
+h4 {
     font-size: 18px;
 }
 
-.h5, h5 {
+.h5,
+h5 {
     font-size: 14px;
 }
 
-.h6, h6 {
+.h6,
+h6 {
     font-size: 12px;
 }
 
@@ -100,7 +116,8 @@ blockquote:before {
 }
 
 .flex .row.top {
-    align-items: flex-start;;
+    align-items: flex-start;
+    ;
 }
 
 .flex .row.middle {
@@ -175,7 +192,8 @@ header .description {
     color: #b58900;
 }
 
-.brand, .title {
+.brand,
+.title {
     font-size: 2em;
     margin: 0;
     color: #cb4b16;
@@ -194,6 +212,7 @@ header .description {
     font-size: 1.5em;
     color: #eee;
 }
+
 
 /* Pagination */
 
@@ -227,6 +246,15 @@ header .description {
     padding: 15px;
 }
 
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+    margin-bottom: 0;
+}
+
 .article-content .hljs {
     padding: 1em;
     font-size: 1em;
@@ -247,7 +275,8 @@ header .description {
     border-radius: 5px;
 }
 
-#result ul, #result ul li {
+#result ul,
+#result ul li {
     list-style-type: none;
 }
 
@@ -257,103 +286,110 @@ header .description {
 }
 
 .next-prev {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 
 .next-prev .prev {
-  margin-right: auto;
+    margin-right: auto;
 }
 
 .next-prev .next {
-  margin-left: auto;
+    margin-left: auto;
 }
 
+
 /***************************/
+
+
 /*        Resume           */
+
+
 /***************************/
+
 section {
-  border: 2px solid;
-  border-radius: 5px;
-  padding: 5px 15px;
-  margin-bottom: 15px;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-bottom: 15px;
 }
 
 .resume section:first-child {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .resume article {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .resume article:not(:last-child) {
-  border-bottom: 1px solid #586e75;
+    border-bottom: 1px solid #586e75;
 }
 
 .resume .skills ul {
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  column-count: 2;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
 }
 
 .resume small,
 .resume .small {
-  color: #b58900;
+    color: #b58900;
 }
 
 .resume h3 {
-  text-align: center;
+    text-align: center;
 }
 
 .resume h4 {
-  color: #2aa198;
+    color: #2aa198;
 }
 
 .resume h5 {
-  font-size: 18px;
-  margin: 0;
+    font-size: 18px;
+    margin: 0;
 }
 
 .resume h5 small {
-  display: block;
+    display: block;
 }
 
+
 /* Small Devices (Tablets) */
+
 @media (min-width: 768px) {
-    .brand, .title {
+    .brand,
+    .title {
         font-size: 3em;
     }
-
     .tagline {
         font-size: 1em;
     }
-
-  .resume .skills {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .resume .skills ul {
-
-    -webkit-columns: 180px 3;
-    -webkit-column-gap: 20px;
-    -moz-columns: 180px 3;
-    -moz-column-gap: 20px;
-    column-count: 180px 3;
-    column-gap: 20px;
-  }
-
+    .resume .skills {
+        display: flex;
+        justify-content: space-around;
+    }
+    .resume .skills ul {
+        -webkit-columns: 180px 3;
+        -webkit-column-gap: 20px;
+        -moz-columns: 180px 3;
+        -moz-column-gap: 20px;
+        column-count: 180px 3;
+        column-gap: 20px;
+    }
 }
+
 
 /* Medium Devices (desktops) */
-@media (min-width: 992px) {
-}
+
+@media (min-width: 992px) {}
+
 
 /* Large devices (large desktops) */
+
 @media (min-width: 1200px) {
     .article-content,
     .article-listing {

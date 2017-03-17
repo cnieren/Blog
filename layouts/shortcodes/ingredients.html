@@ -1,0 +1,6 @@
+{{ $data := index .Site.Data.recipes.ingredients (.Get 0) }}
+<pre>
+    {{ range $data.ingredients }}
+        - {{ .amount }} {{ .description }}
+    {{ end }}
+</pre>
