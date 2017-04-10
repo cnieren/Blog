@@ -136,6 +136,10 @@ blockquote:before {
     margin-bottom: 1rem;
 }
 
+.text-muted {
+    color: #636c72!important;
+}
+
 .form-control {
     display: block;
     height: 34px;
@@ -213,6 +217,26 @@ header .description {
     color: #eee;
 }
 
+figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+figure figcaption h4 {
+    color: inherit;
+    margin: 4px 0 0 4px;
+    font-size: .9em;
+}
+
+figure figcaption h4:before {
+    content: "-- "
+}
+
+figure figcaption h4:after {
+    content: " --"
+}
+
 
 /* Pagination */
 
@@ -268,6 +292,14 @@ header .description {
     color: #EEE;
     padding: 0.5em;
     vertical-align: middle;
+}
+
+.article-content .recipe table {
+    margin: .5em 0 .5em .75em;
+}
+
+.article-content .recipe table td:first-child {
+    padding-right: .75em;
 }
 
 .hljs {

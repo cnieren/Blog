@@ -1,0 +1,24 @@
+{
+    "title": "Shio Koji",
+    "description": "Shio koji is made by combining rice koji, salt and water, then letting the mixture ferment for about a week.",
+    "ingredients": [{
+            "amount": "400g",
+            "description": "water"
+        },
+        {
+            "amount": "300g",
+            "description": "firm granular rice koji",
+            "url": "http://www.pacificeastwest.com/072546382100.html"
+        },
+        {
+            "amount": "80g",
+            "description": "kosher salt"
+        }
+    ],
+    "directions": [
+        "Heat water in a medium saucepan to 140 degrees F",
+        "Combine rice koji, salt, and water in a heat resistant container with a lid",
+        "Cover with the lid and let the mixture ferment at room temperature until it has thickened and smells sweet, fruity, and slightly funky, at least 7 days or up to 14 days, string once per day.",
+        "Store in the refrigerator for up to 6 months"
+    ]
+}

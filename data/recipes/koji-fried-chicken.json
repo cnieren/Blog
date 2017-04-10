@@ -1,0 +1,51 @@
+{
+    "title": "Koji Fried Chicken",
+    "description": "Lets use the tenderizing and flavor-boosting properies of shio koji to marinate a bunch of chicken, then deepfry it to perfection.",
+    "ingredients": [{
+            "amount": "1,500g",
+            "description": "Bone-in chicken pieces (split breasts cut in half, drumsticks, and thighs), trimed"
+        },
+        {
+            "amount": "150g",
+            "description": "Shio koji"
+        },
+        {
+            "amount": "110g",
+            "description": "Firm granular rice koji",
+            "url": "http://www.pacificeastwest.com/072546382100.html"
+        },
+        {
+            "amount": "265g",
+            "description": "Pastry flour, or all-purpose"
+        },
+        {
+            "amount": "13g",
+            "description": "Paprika"
+        },
+        {
+            "amount": "10g",
+            "description": "Onion Powder"
+        },
+        {
+            "amount": "2.5g",
+            "description": "Garlic Powder"
+        },
+        {
+            "amount": "250g",
+            "description": "Buttermilk"
+        },
+        {
+            "amount": "1L",
+            "description": "Frying oil"
+        }
+    ],
+    "directions": [
+        "Combine chicken and shio koji in 1-gallon zipper lock bag. Massage bag to evenly distribute shio koji, press out excess air and seal. Refrigerate for 3 days.",
+        "After marinating for three days, set up your water bath and set the temperature to 155 °F  combine all the dark meat (legs and thighs) into one bag and the breast meat into another bag. (Be careful to not overlap any of the pieces, you want them to have some breathing room in the bag so that they all cook evenly.)",
+        "Combine dry koji and flour in a blender and blend on high until finely ground about 2 minutes. Add to a large shallow bowl with paprika, onion powder, garlic powder, and any other dry spices you like.",
+        "When the chicken is done, remove it from the water bath and let it cool for a bit so it's easier to handle. Pour the buttermilk into a bowl and get ready to bread your chicken.",
+        "I like a good crunch on my fried chicken, so I dredge the pieces in the flour mixture, then the buttermilk, then the flour again, and place them on a wire rack set on a rimmed baking sheet. Let the breaded chicken sit in the fridge uncovered for 24 hours to let the breading get nice and dry.",
+        "Adjust oven rack to middle position and heat to 200 °F. Add oil to dutch oven or heavy bottomed stock pot and heat to 400 °F. Working in batches of 2 or 3 pieces at a time, fry the chicken just long enough to the crust golden brown 2 - 3 minutes. Remove from the fryer and place on wire rack in a rimmed baking sheet in the oven",
+        "Season with salt, and serve!"
+    ]
+}

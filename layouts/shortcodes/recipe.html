@@ -1,0 +1,22 @@
+{{ $recipe := index .Site.Data.recipes (.Get 0) }}
+<section class="recipe">
+    <h3>{{ $recipe.title }}</h3>
+    <p>{{ $recipe.description  | markdownify }}</p>
+
+    <h4>Ingredients</h4>
+    <table>
+        {{ range $recipe.ingredients }}
+        <tr>
+            <td><strong>{{ .amount }}</strong></td>
+            <td>{{ with .url }}<a href="{{ . }}">{{ end }}{{ .description }}{{ if .url }}</a>{{ end }}</td>
+        </tr>
+        {{ end }}
+    </table>
+
+    <h4>Directions</h4>
+    <ol>
+        {{ range $recipe.directions }}
+        <li>{{ . }}</li>
+        {{ end}}
+    </ol>
+</section>
