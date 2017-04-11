@@ -5,7 +5,6 @@ title = "Can't Fuck It Up Koji Fried Chicken"
 description = "The best fried chicken you have ever had"
 thumbnail = "cutlery"
 
-draft=true
 tags = ["cooking", "koji", "cooks science", "chef steps", "fried chicken", "sous vide"]
 +++
 
