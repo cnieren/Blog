@@ -8,4 +8,4 @@
 In the root directory for the site, with hugo installed, run: ```hugo server -w``` or to include draft posts run: ```hugo server -wD```
 
 ## Create a new post
-In the content/post directory create a file with the following name format ```yyyy-mm-dd-{post title}.md```
+In the root directory, run ```hugo new posts/yyyy-mm-dd-{post title}.md```

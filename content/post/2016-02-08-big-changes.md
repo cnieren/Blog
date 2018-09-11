@@ -21,7 +21,7 @@ Hugo also has an impressive list of beautiful and free [themes] you can use to g
 The colors are all based on Ethan Schoonover's [Solarized] theme. I have spent an unhealthy amount of time getting this color scheme working on every terminal and code editor I use, so it seemed natural that I should spend even more time styling my blog with the same colors.
 
 ## Codeship
-One of the benefits of using Jekyll was that GitHub Pages support it natively, you can read more about that [here]({{< relref "post/2015-09-02-about-this-blog-2.md#github" >}}). If you are using GitHub Pages to serve a statically generated site, you need to have two branches that you manage for your site:
+One of the benefits of using Jekyll was that GitHub Pages support it natively, you can read more about that [here]({{< relref "2015-09-02-about-this-blog-2.md#github" >}}). If you are using GitHub Pages to serve a statically generated site, you need to have two branches that you manage for your site:
 
 * <i class="fa fa-code-fork"></i> master - contains the code for the generator and is where you would work on new content.
 * <i class="fa fa-code-fork"></i> gh-pages - contains the static generated content that will be served by GitHub Pages.
