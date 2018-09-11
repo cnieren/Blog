@@ -20,51 +20,39 @@ aside {
     text-align: center;
 }
 
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     line-height: 1.1;
     color: #cb4b16;
 }
 
-.h1,
-h1 {
+h1, .h1 {
     font-size: 36px;
 }
 
-.h2,
-h2 {
+h2, .h2 {
     font-size: 30px;
 }
 
-.h3,
-h3 {
+h3, .h3 {
     font-size: 24px;
 }
 
-.h4,
-h4 {
+h4, .h4 {
     font-size: 18px;
 }
 
-.h5,
-h5 {
+h5, .h5 {
     font-size: 14px;
 }
 
-.h6,
-h6 {
+h6, .h6 {
     font-size: 12px;
 }
 
@@ -80,7 +68,7 @@ blockquote {
     width: 100%;
     position: relative;
     background-color: #eee8d5;
-    margin: 0;
+    margin: 5px 0;
     padding: 1px 10px 10px 50px;
     border-radius: 4px;
 }
@@ -333,11 +321,7 @@ figure figcaption h4:after {
 
 
 /***************************/
-
-
 /*        Resume           */
-
-
 /***************************/
 
 section {
@@ -359,6 +343,7 @@ section {
 
 .resume article:not(:last-child) {
     border-bottom: 1px solid #586e75;
+    margin-bottom: 13px;
 }
 
 .resume .skills ul {
@@ -378,15 +363,18 @@ section {
 
 .resume h4 {
     color: #2aa198;
+    margin: 3px 0 5px;
 }
 
 .resume h5 {
     font-size: 18px;
-    margin: 0;
+    margin: 3px 0 5px;
 }
 
 .resume h5 small {
     display: block;
+    line-height: 1.75em;
+    padding-left: 8px;
 }
 
 

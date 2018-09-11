@@ -10,7 +10,7 @@ slug = "resume"
 <div class="resume">
     <section>
       <h2>Chad Nierenhausen<br /><small>Full Stack Developer</small></h2>
-      <span class="pdf"><a href="/assets/Chad_Nierenhausen_Resume_2016.pdf" target="_blank"><i class="fa fa-file-pdf-o"></i> PDF</a></span>
+      <span class="pdf"><a href="/assets/Chad_Nierenhausen_Resume_2016.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a></span>
     </section>
     <section>
         <h3>Work Experience</h3>

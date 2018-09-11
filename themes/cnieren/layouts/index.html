@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 <article class="article-listing">
-    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") 10 }}
     {{ range $paginator.Pages }}
     {{ .Render "summary" }}
     {{ end }}
