@@ -20,6 +20,14 @@
         <li>
         {{ with .title }}<strong>{{ . }}</strong>{{ end }}
         {{ range .steps }}<p>{{ . }}</p>{{ end }}
+        {{ with .image }}
+        <figure>
+            <img src="{{ .url }}" alt="{{ .alt }}" />
+            <figcaption>
+               <h4>{{ .title }}</h4>
+            </figcaption>
+        </figure>
+        {{ end }}
         </li>
         {{ end }}
     </ol>

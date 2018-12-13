@@ -1,6 +1,6 @@
 {
     "title": "All-Purpose Pie Crust (Pâte Brisée)",
-    "description": "",
+    "description": "This has become my go-to, workhorse, flaky, buttery pie crust that works well with everything I've thrown in it.\n\n Thanks to [ChefSteps](https://www.chefsteps.com/activities/buttery-flaky-all-purpose-pie-crust-pate-brisee) for this recipe.",
     "yield": "Plenty for a 10-inch springform pan",
     "ingredients": [{
             "amount": "250g",
@@ -45,6 +45,11 @@
         },
         {
             "title": "Roll out dough; mold; refrigerate",
+            "image": {
+                "url": "/img/pie-crust/raw-crust.jpg",
+                "title": "Raw pie crust",
+                "alt": "Raw pie crust in the pie plate"
+            },
             "steps": [
                 "Roll dough out on floured surface until about 3 mm thick.",
                 "Mold dough into desired shape in baking dish. Fold edges under the sides of the dish and trim excess.",
