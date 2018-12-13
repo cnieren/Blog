@@ -2,6 +2,7 @@
 <section class="recipe">
     <h3>{{ $recipe.title }}</h3>
     <p>{{ $recipe.description  | markdownify }}</p>
+    {{ with $recipe.yield }}<h4>Yield</h4><p>{{ . }}</p>{{end}}
 
     <h4>Ingredients</h4>
     <table>
@@ -16,7 +17,10 @@
     <h4>Directions</h4>
     <ol>
         {{ range $recipe.directions }}
-        <li>{{ . }}</li>
-        {{ end}}
+        <li>
+        {{ with .title }}<strong>{{ . }}</strong>{{ end }}
+        {{ range .steps }}<p>{{ . }}</p>{{ end }}
+        </li>
+        {{ end }}
     </ol>
 </section>

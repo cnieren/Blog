@@ -1,10 +1,13 @@
 +++
 author      = "Chad Nierenhausen"
-title       = ""
-description = ""
+date        = "yyyy-mm-dd-title.md"
+title       = "New Blog Post"
+description = "This is a new post"
 thumbnail   = ""
-slug        = ""
+draft       = "true"
 
-tags  = []
+tags        = []
 series      = []
 +++
+
+# Hello New Blog Post
