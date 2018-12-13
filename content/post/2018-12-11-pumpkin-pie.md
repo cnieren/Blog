@@ -12,5 +12,5 @@ tags = []
 
 # The best pumpkin pie ever
 
-## The Recipe
+## The Recipes
 {{< recipe  "pie-crust" >}}
