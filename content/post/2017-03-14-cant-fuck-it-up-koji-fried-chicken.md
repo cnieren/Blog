@@ -43,7 +43,4 @@ The first time I made the Koji Fried Chicken recipe I followed it exactly, which
 Okay, now that we have the back story on the two source recipes covered, here is the combined recipe that I have been using.
 
 {{< recipe  "shio-koji" >}}
-{{< figure src="/img/koji-fried-chicken/koji.jpg" title="Shio koji fermentation day 1" alt="Shio koji day 1" >}}
 {{< recipe  "koji-fried-chicken" >}}
-{{< figure src="/img/koji-fried-chicken/breaded.jpg" title="Breaded chicken after refrigeration" alt="Breaded chicken after refrigeration" >}}
-{{< figure src="/img/koji-fried-chicken/cooked.jpg" title="Finished chicken" alt="Finished chicken" >}}

@@ -3,17 +3,20 @@
     "yield": "About 800g",
     "description": "Shio koji is made by combining rice koji, salt and water, then letting the mixture ferment for about a week.",
     "ingredients": [{
-            "amount": "400g",
-            "description": "water"
+            "ingredient": "water",
+            "quantity": "400",
+            "unit": "g"
         },
         {
-            "amount": "300g",
-            "description": "firm granular rice koji",
+            "ingredient": "firm granular rice koji",
+            "quantity": "300",
+            "unit": "g",
             "url": "http://www.pacificeastwest.com/072546382100.html"
         },
         {
-            "amount": "80g",
-            "description": "kosher salt"
+            "ingredient": "kosher salt",
+            "quantity": "80",
+            "unit": "g"
         }
     ],
     "directions": [
@@ -32,6 +35,11 @@
         },
         {
             "title": "Store",
+            "image": {
+                "url": "/img/koji-fried-chicken/koji.jpg",
+                "title": "Shio koji fermentation day 1",
+                "alt": "Shio koji day 1"
+            },
             "steps": [
                 "Store in the refrigerator for up to 6 months"
             ]

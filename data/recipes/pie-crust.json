@@ -3,20 +3,24 @@
     "description": "This has become my go-to, workhorse, flaky, buttery pie crust that works well with everything I've thrown in it.\n\n Thanks to [ChefSteps](https://www.chefsteps.com/activities/buttery-flaky-all-purpose-pie-crust-pate-brisee) for this recipe.",
     "yield": "Plenty for a 10-inch springform pan",
     "ingredients": [{
-            "amount": "250g",
-            "description": "Bread Flour"
+            "ingredient": "Bread Flour",
+            "quantity": "250",
+            "unit": "g"
         },
         {
-            "amount": "205g",
-            "description": "Butter, cubed and chilled"
+            "ingredient": "Butter, cubed and chilled",
+            "quantity": "205",
+            "unit": "g"
         },
         {
-            "amount": "3g",
-            "description": "Salt"
+            "ingredient": "Salt",
+            "quantity": "3",
+            "unit": "g"
         },
         {
-            "amount": "55g",
-            "description": "Water, ice cold"
+            "ingredient": "Water, ice cold",
+            "quantity": "55",
+            "unit": "g"
         }
     ],
     "directions": [

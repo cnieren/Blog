@@ -3,41 +3,50 @@
     "yield": "8 pieces",
     "description": "Lets use the tenderizing and flavor-boosting properies of shio koji to marinate a bunch of chicken, then deepfry it to perfection.",
     "ingredients": [{
-            "amount": "1,500g",
-            "description": "Bone-in chicken pieces (split breasts cut in half, drumsticks, and thighs), trimed"
+            "ingredient": "Bone-in chicken pieces (split breasts cut in half, drumsticks, and thighs), trimed",
+            "quantity": "1,500",
+            "unit": "g"
         },
         {
-            "amount": "150g",
-            "description": "Shio koji"
+            "ingredient": "Shio koji",
+            "quantity": "150",
+            "unit": "g"
         },
         {
-            "amount": "110g",
-            "description": "Firm granular rice koji",
+            "ingredient": "Firm granular rice koji",
+            "quantity": "110",
+            "unit": "g",
             "url": "http://www.pacificeastwest.com/072546382100.html"
         },
         {
-            "amount": "265g",
-            "description": "Pastry flour, or all-purpose"
+            "ingredient": "Pastry flour, or all-purpose",
+            "quantity": "265",
+            "unit": "g"
         },
         {
-            "amount": "13g",
-            "description": "Paprika"
+            "ingredient": "Paprika",
+            "quantity": "13",
+            "unit": "g"
         },
         {
-            "amount": "10g",
-            "description": "Onion Powder"
+            "ingredient": "Onion Powder",
+            "quantity": "10",
+            "unit": "g"
         },
         {
-            "amount": "2.5g",
-            "description": "Garlic Powder"
+            "ingredient": "Garlic Powder",
+            "quantity": "2.5",
+            "unit": "g"
         },
         {
-            "amount": "250g",
-            "description": "Buttermilk"
+            "ingredient": "Buttermilk",
+            "quantity": "250",
+            "unit": "g"
         },
         {
-            "amount": "1L",
-            "description": "Frying oil"
+            "ingredient": "Frying oil",
+            "quantity": "1",
+            "unit": "L"
         }
     ],
     "directions": [
@@ -67,6 +76,11 @@
         },
         {
             "title": "Bread em'",
+            "image": {
+                "url": "/img/koji-fried-chicken/breaded.jpg",
+                "title": "Breaded chicken after refrigeration",
+                "alt": "Breaded chicken after refrigeration"
+            },
             "steps": [
                 "When the chicken is done, remove it from the water bath and let it cool for a bit so it's easier to handle.",
                 "I like a good crunch on my fried chicken, so I dredge the pieces in the flour mixture, then the buttermilk, then the flour again, and place them on a wire rack set on a rimmed baking sheet.",
@@ -75,6 +89,11 @@
         },
         {
             "title": "Fry em' up",
+            "image": {
+                "url": "/img/koji-fried-chicken/cooked.jpg",
+                "title": "Finished chicken",
+                "alt": "Finished chicken"
+            },
             "steps": [
                 "Adjust oven rack to middle position and heat to 200 °F.",
                 "Add oil to dutch oven or heavy bottomed stock pot and heat to 400 °F.",

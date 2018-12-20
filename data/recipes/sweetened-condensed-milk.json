@@ -3,77 +3,52 @@
     "description": "",
     "yield": "Makes 2 cups or 538g",
     "ingredients": [{
-            "amount": "910g",
-            "description": "Milk"
+            "ingredient": "Milk",
+            "quantity": "910",
+            "unit": "g"
         },
         {
-            "amount": "170g",
-            "description": "Heavy Cream"
+            "ingredient": "Heavy Cream",
+            "quantity": "170",
+            "unit": "g"
         },
         {
-            "amount": "195g",
-            "description": "Sugar"
+            "ingredient": "Sugar",
+            "quantity": "195",
+            "unit": "g"
         },
         {
-            "amount": "1/8 teaspoon",
-            "description": "Salt"
+            "ingredient": "Salt",
+            "quantity": "1/8",
+            "unit": "tsp"
         },
         {
-            "amount": "",
-            "description": "Aromatics: Vanilla Bean or Cinnamon Sticks"
+            "ingredient": "Aromatics: Vanilla Bean or Cinnamon Sticks"
         }
     ],
     "directions": [
         {
-            "title": "Combine and chill",
+            "title": "Combine and simmer",
             "steps": [
-                "Combine flour, butter, and salt in the bowl of a stand mixer.",
-                "Place the bowl of ingredients and the paddle attachment in the refrigerator until cold.",
-                "You want to keep all ingredients as cool as possible throughout the process."
+                "Combine milk, cream, sugar, salt, and vanilla bean or cinnamon (if using) in a 5-quart stainless steel saucier.",
+                "If you have a scale, weigh the pot and ingredients together so you can digitally track the reduction.",
+                "Place over medium heat, stirring occasionally with a heat-resistant spatula, until the milk begins to simmer, about 12 minutes."
             ]
         },
         {
-            "title": "Mix",
+            "title": "Keep on simmerin'",
             "steps": [
-                "Using the paddle attachment, mix on low until you get coarse crumbs",
-                "Add water and mix just until dough comes together smoothly, about 1 minute."
+                "Continue simmering an additional 30 minutes, scraping continuously to prevent a milky buildup from forming around the sides.",
+                "When the thickened milk syrup suddenly turns foamy, it’s almost done.",
+                "Keep cooking and stirring until the foam subsides and the dairy has condensed to exactly 2 cups or 19 ounces. If using a scale, the pot will weigh 26 ounces less than when you started."
             ]
         },
         {
-            "title": "Shape dough; refrigerate",
+            "title": "Save it for later",
             "steps": [
-                "Remove dough from mixing bowl and form into smooth ball. Flour hands and board as needed.",
-                "Press ball into a disk about 4cm thick.",
-                "Wrap with plastic and refrigerate for at least four hours. This keeps the dough from shrinking, warping, and pulling away from the pan when you bake it. If you don’t care about that, this step is optional."
-            ]
-        },
-        {
-            "title": "Roll out dough; mold; refrigerate",
-            "image": {
-                "url": "/img/pie-crust/raw-crust.jpg",
-                "title": "Raw pie crust",
-                "alt": "Raw pie crust in the pie plate"
-            },
-            "steps": [
-                "Roll dough out on floured surface until about 3 mm thick.",
-                "Mold dough into desired shape in baking dish. Fold edges under the sides of the dish and trim excess.",
-                "Refrigerate, uncovered, for at least one hour. Overnight is best. If you do this, cover in plastic wrap after one hour, once the dough has hardened."
-            ]
-        },
-        {
-            "title": "Fill and bake",
-            "steps": [
-                "If making pecan or apple pie, add filling to dough and bake as needed.",
-                "For quiche, pumpkin pie, and other liquidy fillings, continue to the next step and blind bake to ensure a flaky, crispy crust. Then fill and bake as needed."
-            ]
-        },
-        {
-            "title": "Blind bake",
-            "steps": [
-                "Place weights on dough. (We line it with aluminum foil and pour in dry beans.)",
-                "Bake at 392 °F / 200 °C for 20 minutes.",
-                "Remove weights. Bake another five minutes for a perfectly crispy, flaky crust."
+                "Pour into an airtight container, seal to prevent evaporation, and refrigerate until needed, up to 1 month. To mimic the consistency of canned milk, bring to room temperature before use."
             ]
         }
     ]
 }
+
