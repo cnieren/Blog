@@ -3,7 +3,7 @@ author = "Chad Nierenhausen"
 date = "2015-06-18T00:00:00Z"
 title = "About this Blog - Part 1"
 description = "The technology behind this blog"
-thumbnail = "flask"
+thumbnail = "fas fa-flask"
 
 tags = [ "jekyll", "vagrant", "blog" ]
 +++

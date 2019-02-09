@@ -3,7 +3,7 @@ author = "Chad Nierenhausen"
 date = "2017-04-10T13:06:06-07:00"
 title = "Can't Fuck It Up Koji Fried Chicken"
 description = "The best fried chicken you have ever had"
-thumbnail = "utensils"
+thumbnail = "fas fa-utensils"
 
 tags = ["cooking", "koji", "cooks science", "chef steps", "fried chicken", "sous vide"]
 +++

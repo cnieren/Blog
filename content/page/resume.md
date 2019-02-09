@@ -14,13 +14,25 @@ slug = "resume"
     </section>
     <section>
         <h3>Work Experience</h3>
+        <h4>Software Architect</h4>
+        <article>
+          <h5>The American Board of Radiology<small>Feb, 2018 - Present</small></h5>
+          <ul>
+            <li>Took over lead development of a brand new .NET Core API with Aurelia/Redux UI used for a new online testing platform that continually tests and evaluates Radiologists to maintain their certification through out their careers</li>
+            <li>Worked with QA department to load test, profile and improve performance of the API to ensure we could handle worst case senario loads on launch day.</li>
+            <li>Colaborated with Systems Administrators to build a new automated build and deployment pipeline using TFS 2018 to deliver code through all our environments reliably.</li>
+            <li>Designed and built two sandboxed systems used by the outreach team to demo early versions of the product to Radiologists, and provide education and trainig to our customers. The systems each consisted of a laptop, MikroTik hotspot and 5 iPads, that functioned in environments were network connectivity wasn't guranteed.</li>
+          </ul>
+        </article>
         <h4>Software Development Engineer</h4>
         <article>
-          <h5>SCI Solutions<small>July, 2016 - Present</small></h5>
+          <h5>SCI Solutions<small>July, 2016 - February, 2018</small></h5>
           <ul>
-            <li>Full Stack developer, working with a small agile team to maintain and improve a SaaS application, that allows Physicians Offices and Hospitals to send and receive electronic orders for medical procedures.</li>
-            <li>Working to improve unit test code coverage to improve developer confidence with each release and minimize future regression.</li>
-            <li>Using progressive enhancement to improve accessibility and bring product in-line with modern browser capabilities.</li>
+            <li>Worked as a Full Stack developer on a small agile team to maintain and improve a SaaS application, that allows Physicians Offices and Hospitals to send and receive electronic orders for medical procedures.</li>
+            <li>Worked to improve unit test code coverage to improve developer confidence with each release and minimize future regression.</li>
+            <li>Implemented progressive enhancement to improve accessibility and bring product in-line with modern browser capabilities.</li>
+            <li>Improved existing agile practice to dial in estimations and start completeing all work scheduled in a sprint.</li>
+            <li>Worked closely with Customer Support and Implimentation Consultant staff to help build tooling and prioritize bug fixes to maximize client delight.</li>
           </ul>
         </article>
         <h4>Application Systems Analyst, Principal</h4>
@@ -45,55 +57,31 @@ slug = "resume"
             <li>Collaborated with the Marketing and Residential Education Departments to design and build a mobile-first responsive website used in the winning bid by the University of Arizona to host the AIMHO 2015 Conference.</li>
           </ul>
         </article>
-        <h4>Web Developer</h4>
-        <article>
-          <h5>Twinwicks - Freelance <small>2012 - Present</small></h5>
-          <ul>
-            <li>Heavily modified the frontend and administrative interface of the Javo House Wordpress theme to reflect the needs of the <a  _target="_blank" href="http://crunkletonassociates.com/" target="_blank">Crunkleton Commercial Real Estate Group</a>.</li>
-            <li>Developed and maintain a custom website for Arizona State Representative <a href="http://steeleforhouse.com/" target="_blank">Victoria Steele's</a> successful campaign to her first elected position within the Arizona House of Representatives.</li>
-            <li>Developed a custom WordPress -based ecommerce site for local music publisher <a href="http://bpmpublications.com/" target="_blank">BPM Publications</a>.</li>
-            <li>Constructed a custom portfolio site for local makeup artist Kelly Estes of <a href="http://ladylovelymakeup.com/" target="_blank">Lady Lovely Makeup Artistry</a>. The site features a custom-built live Instagram feed using the OAuth 2.0 protocol and Instagram's API.</li>
-          </ul>
-        </article>
-        <h4>Support Systems Analyst</h4>
-        <article>
-          <h5>University of Arizona - Residence Life <small>2010 - 2011</small></h5>
-          <ul>
-            <li>Built, tested and maintained fifteen-plus physical servers spread across three separate locations on campus used to host more than forty virtual servers that support the professional and student staff of Residence Life.</li>
-            <li>Maintained and updated twenty-three dorm-specific websites while working with the director of each hall to implement custom Drupal modules to support hall programs and initiatives.</li>
-            <li>Designed, developed and custom built three electronic displays for meeting rooms to replace the old paper inserts. The displays are updated by web-based tool automatically updates room availability using information from Exchange calendars as meetings are created and canceled.</li>
-            <li>Updated and fine-tuned software and hardware used to monitor server room conditions and server uptimes across three different locations on campus.</li>
-          </ul>
-        </article>
     </section>
     <section>
-      <h3>Work Experience</h3>
+      <h3>Skills</h3>
       <div class="skills">
         <ul>
-          <li>HTML5</li>
-          <li>CSS3</li>
-          <li>JavaScript</li>
+          <li>AWS <i class="fab fa-aws"></i></li>
+          <li>Azure</li>
+          <li>Docker <i class="fab fa-docker"></i></li>
+          <li>JavaScript <i class="fab fa-js-square"></i></li>
+          <li>TypeScript</li>
           <li>C#</li>
-          <li>PHP</li>
-          <li>Java</li>
-          <li>C</li>
-          <li>Python</li>
+          <li>Node <i class="fab fa-node-js"></i></li>
+          <li>Angular <i class="fab fa-angular"></i></li>
+          <li>Aurelia</li>
+          <li>React <i class="fab fa-react"></i></li>
+          <li>Redux</li>
+          <li>Webpack</li>
+          <li>Azure Pipelines</li>
           <li>.Net Framework</li>
-          <li>Microsoft MVC</li>
-          <li>Twitter Bootstrap</li>
-          <li>jQuery</li>
-          <li>Wordpress</li>
-          <li>Jekyll</li>
-          <li>Drupal</li>
-          <li>Hugo</li>
           <li>Visual Studio</li>
-          <li>Microsoft SQL</li>
-          <li>Team Foundation Studio</li>
-          <li>GitHub</li>
-          <li>Vagrant</li>
-          <li>Docker</li>
-          <li>Windows</li>
-          <li>Linux</li>
+          <li>Microsoft SQL <i class="fas fa-database"></i></li>
+          <li>GitHub <i class="fab fa-github"></i></li>
+          <li>Windows <i class="fab fa-windows"></i></li>
+          <li>Linux <i class="fab fa-linux"></i></li>
+          <li>MacOS <i class="fab fa-apple"></i></li>
         </ul>
       </div>
     </section>
@@ -101,8 +89,8 @@ slug = "resume"
       <h3>Education</h3>
       <h4>University of Arizona</h4>
       <article>
-        <h5>Computer Science<small>2007 - Present</small></h5>
-        <p>Actively pursuing a Bachelor of Science in Computer Science while working full time for the University of Arizona.</p>
+        <h5>Computer Science<small>2007 - 2016</small></h5>
+        <p>Pursued a Bachelor of Science in Computer Science while working full time for the University of Arizona.</p>
       </article>
       <h4>Pima Community College</h4>
       <article>

@@ -3,7 +3,7 @@ author = "Chad Nierenhausen"
 date = "2015-11-10T00:00:00Z"
 title = "A Vagrant Built My Homework"
 description = "How I use Vagrant to mimic the remote access server used by the Computer Science Department at the University of Arizona."
-thumbnail = "cogs"
+thumbnail = "fas fa-cogs"
 
 tags = [ "vagrant", "homework", "school", "C" ]
 +++

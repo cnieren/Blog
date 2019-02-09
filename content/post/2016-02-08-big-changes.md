@@ -3,7 +3,7 @@ author = "Chad Nierenhausen"
 date = "2016-03-08T13:06:06-07:00"
 title = "Big Changes"
 description = "Man... Everything is different!"
-thumbnail = "ship"
+thumbnail = "fas fa-ship"
 
 tags = ["hugo", "solarized", "codeship", "blog", "jekyll"]
 +++
@@ -23,8 +23,8 @@ The colors are all based on Ethan Schoonover's [Solarized] theme. I have spent a
 ## Codeship
 One of the benefits of using Jekyll was that GitHub Pages support it natively, you can read more about that [here]({{< relref "2015-09-02-about-this-blog-2.md#github" >}}). If you are using GitHub Pages to serve a statically generated site, you need to have two branches that you manage for your site:
 
-* <i class="fa fa-code-fork"></i> master - contains the code for the generator and is where you would work on new content.
-* <i class="fa fa-code-fork"></i> gh-pages - contains the static generated content that will be served by GitHub Pages.
+* <i class="fas fa-code-branch"></i> master - contains the code for the generator and is where you would work on new content.
+* <i class="fas fa-code-branch"></i> gh-pages - contains the static generated content that will be served by GitHub Pages.
 
 This extra branch management, while not terrible, didn't sound like a lot of fun, so I decided to use [Codeship], a Continuous Delivery service, to handle the building and publishing steps for the blog. After creating an account with Codeship I setup a new Go project and configured the integration with GitHub. When Codeship notices a change in the GitHub repository it spins up a Docker container with Go installed, and pulls the code from GitHub into the container. Control is then handed over to the following test script:
 ~~~  bash

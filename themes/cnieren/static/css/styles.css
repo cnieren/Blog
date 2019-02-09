@@ -331,6 +331,10 @@ section {
     margin-bottom: 15px;
 }
 
+.resume {
+    margin-top: 1.5em; 
+}
+
 .resume section:first-child {
     display: flex;
     justify-content: space-between;

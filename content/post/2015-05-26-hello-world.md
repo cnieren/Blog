@@ -3,7 +3,7 @@ author = "Chad Nierenhausen"
 date = "2015-05-13T00:00:00Z"
 title = "Hello World"
 description = "Rigging the Kickball Prom King and Queen Election."
-thumbnail = "trophy"
+thumbnail = "fas fa-trophy"
 
 tags = [ "python", "kickball", "prom", "surveymonkey", "automation" ]
 +++

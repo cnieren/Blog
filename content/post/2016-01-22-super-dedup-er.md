@@ -3,7 +3,7 @@ author = "Chad Nierenhausen"
 date = "2016-01-22T00:00:00Z"
 title = "(Super) Dedup-er"
 description = "Stable deduplication of an unsorted collection of email addresses."
-thumbnail = "code"
+thumbnail = "fas fa-code"
 
 tags = ["algorithm", "computer science", "javascript"]
 +++

@@ -2,24 +2,24 @@
 <html lang="{{ .Site.LanguageCode }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="{{ .Title }}{{if ne .Title .Site.Title }} &middot; {{ .Site.Title }} {{ end }}">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="{{ .Title }}{{if ne .Title .Site.Title }} &middot; {{ .Site.Title }} {{ end }}" />
     <meta property="og:site_name" content="{{ .Site.Title }}" />
-    <meta property="og:description" content="{{ if ne .Description " " }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta property="og:description" content="{{ if ne .Description " " }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
-    <meta property="og:locale" content="{{ .Site.LanguageCode }}">
-    <meta name="author" content="{{ .Site.Author.name }}">
-    <meta name="description" content="{{ if ne .Description " " }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta property="og:locale" content="{{ .Site.LanguageCode }}" />
+    <meta name="author" content="{{ .Site.Author.name }}" />
+    <meta name="description" content="{{ if ne .Description " " }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
     <meta name="keywords" content="{{ with .Keywords }}{{ delimit . " , " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}"> {{ .Hugo.Generator }}
-    <link rel="icon" href="{{ " /assets/favicon.ico " | absURL }}" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="{{ " /assets/favicon.ico " | absURL }}" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ "/css/highlightjs-solarized-dark.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "/css/styles.css" | absURL }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ "/css/highlightjs-solarized-dark.css" | absURL }}" />
+    <link rel="stylesheet" href="{{ "/css/styles.css" | absURL }}" />
     {{ range .Params.css }}
     <link rel="stylesheet" href="/css/{{ . }}"> {{ end }}
     <title>
@@ -39,7 +39,7 @@
                     <li><a href="{{ .URL | absURL }}">{{ .Name }}</a></li>{{ end }}</ul>
             </nav>
             {{ if eq .Section "post" }} {{ with .Params.thumbnail }}
-            <p class="thumbnail"><i class="fa fa-{{ . }} fa-3x"></i></p>{{ end }}
+            <p class="thumbnail"><i class="{{ . }} fa-3x"></i></p>{{ end }}
             <h1 class="title">{{ .Title }}</h1>
             {{ with .Description }}
             <p class="description">{{ .}}</p>{{ end }}
@@ -58,7 +58,7 @@
                 {{ with .Site.Params.linkedin }}<a target="_blank" href="//linkedin.com/in/{{ . }}"><i class="fab fa-linkedin-in fa-2x"></i></a>{{ end }}
                 {{ with .Site.Params.github }}<a target="_blank" href="http://github.com/{{ . }}"><i class="fab fa-github fa-2x"></i></a>{{ end }}
                 {{ with .Site.Params.twitter }}<a target="_blank" href="//twitter.com/{{ . }}"><i class="fab fa-twitter fa-2x"></i></a>{{ end }}
-                {{ with .Site.Params.email }}<a href="mailto:{{ . }}"><i class="fa fa-envelope fa-2x"></i></a>{{ end }}
+                {{ with .Site.Params.email }}<a href="mailto:{{ . }}"><i class="fas fa-envelope fa-2x"></i></a>{{ end }}
             </p>
             {{ end }}
         </header>
