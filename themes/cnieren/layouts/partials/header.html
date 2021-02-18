@@ -11,7 +11,7 @@
     <meta property="og:locale" content="{{ .Site.LanguageCode }}" />
     <meta name="author" content="{{ .Site.Author.name }}" />
     <meta name="description" content="{{ if ne .Description " " }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
-    <meta name="keywords" content="{{ with .Keywords }}{{ delimit . " , " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}"> {{ .Hugo.Generator }}
+    <meta name="keywords" content="{{ with .Keywords }}{{ delimit . " , " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}"> {{ hugo.Generator }}
     <link rel="icon" href="{{ " /assets/favicon.ico " | absURL }}" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
     {{ range .Params.css }}
     <link rel="stylesheet" href="/css/{{ . }}"> {{ end }}
     <title>
-        {{ if eq .URL "/" }}
+        {{ if .IsHome }}
             {{ .Site.Title }}
         {{ else }}
             {{ .Title }} &middot; {{ .Site.Title }}
