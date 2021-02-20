@@ -62,20 +62,19 @@ slug = "resume"
       <h3>Skills</h3>
       <div class="skills">
         <ul>
-          <li>AWS <i class="fab fa-aws"></i></li>
           <li>Azure</li>
-          <li>Docker <i class="fab fa-docker"></i></li>
-          <li>JavaScript <i class="fab fa-js-square"></i></li>
-          <li>TypeScript</li>
           <li>C#</li>
+          <li>JavaScript <i class="fab fa-js-square"></i></li>
+          <li>Docker <i class="fab fa-docker"></i></li>
+          <li>AWS <i class="fab fa-aws"></i></li>
+          <li>TypeScript</li>
           <li>Node <i class="fab fa-node-js"></i></li>
           <li>Angular <i class="fab fa-angular"></i></li>
           <li>Aurelia</li>
           <li>React <i class="fab fa-react"></i></li>
           <li>Redux</li>
           <li>Webpack</li>
-          <li>Azure Pipelines</li>
-          <li>.Net Framework</li>
+          <li>.Net Core</li>
           <li>Visual Studio</li>
           <li>Microsoft SQL <i class="fas fa-database"></i></li>
           <li>GitHub <i class="fab fa-github"></i></li>
