@@ -1,9 +1,10 @@
-{{ partial "header.html" . }}
-<article class="article-listing">
-    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") 10 }}
-    {{ range $paginator.Pages }}
-    {{ .Render "summary" }}
-    {{ end }}
-    {{ template "_internal/pagination.html" . }}
-</article>
-{{ partial "footer.html" . }}
+{{ define "main" }}
+    <article class="article-listing">
+        {{ $paginator := .Paginate (where .Pages "Type" "posts") }}
+        {{ range $paginator.Pages }}
+            {{ .Title }}
+            {{ .Render "summary" }}
+        {{ end }}
+        {{ template "_internal/pagination.html" . }}
+    </article>
+{{ end }}
