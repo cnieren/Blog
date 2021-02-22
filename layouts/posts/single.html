@@ -1,4 +1,4 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 <article class="article-content">
     {{ .Content }}
     <aside class="meta">
@@ -22,4 +22,4 @@
         {{ end }}
       </section>
 </article>
-{{ partial "footer.html" . }}
+{{ end }}

@@ -1,6 +1,6 @@
 +++
 author      = "Chad Nierenhausen"
-date        = "yyyy-mm-dd-title.md"
+date        = "yyyy-mm-dd"
 title       = "New Blog Post"
 description = "This is a new post"
 thumbnail   = ""

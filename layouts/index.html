@@ -1,0 +1,9 @@
+{{ define "main" }}
+    <article class="article-listing">
+    {{ $posts := .Paginate (where (where .Site.Pages "Type" "posts") ".Kind" "page" ) }}
+    {{ range $posts.Pages }}
+        {{ .Render "summary" }}
+    {{ end }}
+    {{ template "_internal/pagination.html" . }}
+    </article>
+{{ end }}
