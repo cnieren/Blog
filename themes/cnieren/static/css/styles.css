@@ -381,6 +381,13 @@ section {
     padding-left: 8px;
 }
 
+/***************************/
+/*       Recipes           */
+/***************************/
+.recipe .directions {
+    margin-top: .8em;
+    margin-left: 1em;
+}
 
 /* Small Devices (Tablets) */
 
