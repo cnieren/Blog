@@ -32,3 +32,5 @@ Gemfile.lock
 
 # Generated Content
 public/*
+
+.hugo_build.lock
