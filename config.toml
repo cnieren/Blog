@@ -57,3 +57,8 @@ PaginatePath = "posts"
     # name        = "about"
     # url         = "/about/"
     # weight      = 2
+
+[deployment]
+    [[deployment.targets]]
+    name = "aws"
+    URL = "s3://chadnierenhausen.com?region=us-west-2"
