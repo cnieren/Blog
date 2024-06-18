@@ -1,14 +1,11 @@
-baseURL = "http://chadnierenhausen.com"
+baseURL = "https://chadnierenhausen.com"
 title = "Chad Nierenhausen"
 theme = "cnieren"
 languageCode = "en-us"
 
-MetaDataFormat = "toml"
 Paginate = 5
 PaginatePath = "posts"
 
-[author]
-    name = "Chad Nierenhausen"
 
 [permalinks]
     page = "/:slug/"

@@ -9,52 +9,52 @@ slug = "resume"
 
 <div class="resume">
     <section>
-      <h2>Chad Nierenhausen<br /><small>Full Stack Developer</small></h2>
-      <span class="pdf"><a href="/assets/Chad_Nierenhausen_Resume_2016.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a></span>
+      <h2>Chad Nierenhausen<br /><small>EVP of Software Development</small></h2>
+      <span class="pdf"><a href="/assets/Chad_Nierenhausen_Resume.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a></span>
     </section>
     <section>
         <h3>Work Experience</h3>
+        <h4>EVP of Software Development</h4>
+        <article>
+          <h5>Pyx Health<small>Aug, 2019 - Present</small></h5>
+          <ul>
+            <li>Architected and scaled cloud-native software & infrastructure to support the Pyx Health Progressive Web App, iOS, and Android mobile applications. This resulted in a 2,250% increase in customer base, growing from 2 national clients to 23 national clients across 150+ markets.</li>
+            <li>Led and mentored the Engineering team through a significant expansion, growing from 3 members to 16, establishing multiple agile development teams, a dedicated QA team, and a Data Engineering team.</li>
+            <li>Built the Data Engineering department from the ground up, enabling the ingestion of over 600 flat files with a combined 10+ million records monthly.</li>
+            <li>Spearheaded the Engineering team during a period of exceptional growth (250% annually), achieving recognition on the Inc. list of Fastest Growing Companies for two consecutive years.</li>
+            <li>Delivered projects consistently on time, maintaining a near-perfect score on HiTRUST r2 compliance certifications.</li>
+            <li>Successfully integrated the Engineering team post-acquisition (InquisitHealth). Migrated their infrastructure from AWS to Azure, implemented robust QA, Stage, and Production environments, and established a streamlined Azure DevOps pipeline (build once, deploy anywhere). This ensured compliance with regulations and elevated the product's capabilities to meet Pyx's high standards.</li>
+            <li>Collaborated with Data Analytics to construct a PII-blinded data warehouse with Machine Learning and AI functionalities. This led to the development of a proprietary Loneliness scoring algorithm that effectively identifies at-risk members within health plan partner cohorts, enabling better service targeting.</li>
+          </ul>
+        </article>
         <h4>Software Architect</h4>
         <article>
-          <h5>The American Board of Radiology<small>Feb, 2018 - Present</small></h5>
+          <h5>The American Board of Radiology<small>Feb, 2018 - Aug, 2019</small></h5>
           <ul>
-            <li>Took over lead development of a brand new .NET Core API with Aurelia/Redux UI used for a new online testing platform that continually tests and evaluates Radiologists to maintain their certification through out their careers</li>
-            <li>Worked with QA department to load test, profile and improve performance of the API to ensure we could handle worst case senario loads on launch day.</li>
-            <li>Colaborated with Systems Administrators to build a new automated build and deployment pipeline using TFS 2018 to deliver code through all our environments reliably.</li>
-            <li>Designed and built two sandboxed systems used by the outreach team to demo early versions of the product to Radiologists, and provide education and trainig to our customers. The systems each consisted of a laptop, MikroTik hotspot and 5 iPads, that functioned in environments were network connectivity wasn't guranteed.</li>
+            <li>Oversaw the development of a brand new .NET Core API and Aurelia/Redux UI for an online testing platform used by radiologists to maintain their certifications.</li>
+            <li>Collaborated with the QA department to perform load testing, profiling, and performance optimization of the API to ensure it could handle anticipated user volumes during launch.</li>
+            <li>Partnered with Systems Administrators to design and implement a new automated build and deployment pipeline using TFS 2018, streamlining code delivery across all environments.</li>
+            <li>Designed and built two sandboxed systems for the outreach team, each consisting of a laptop, MikroTik hotspot, and 5 iPads, to facilitate product demonstrations and customer training in environments with limited or no network connectivity.</li>
           </ul>
         </article>
         <h4>Software Development Engineer</h4>
         <article>
-          <h5>SCI Solutions<small>July, 2016 - February, 2018</small></h5>
+          <h5>SCI Solutions<small>July, 2016 - Feb, 2018</small></h5>
           <ul>
-            <li>Worked as a Full Stack developer on a small agile team to maintain and improve a SaaS application, that allows Physicians Offices and Hospitals to send and receive electronic orders for medical procedures.</li>
-            <li>Worked to improve unit test code coverage to improve developer confidence with each release and minimize future regression.</li>
-            <li>Implemented progressive enhancement to improve accessibility and bring product in-line with modern browser capabilities.</li>
-            <li>Improved existing agile practice to dial in estimations and start completeing all work scheduled in a sprint.</li>
-            <li>Worked closely with Customer Support and Implimentation Consultant staff to help build tooling and prioritize bug fixes to maximize client delight.</li>
+            <li>Full Stack .Net developer, working with a small agile team to maintain and improve a large SaaS application, that allows Physicians Offices and Hospitals to send and receive electronic orders for medical procedures. </li>
+            <li>Increased unit test code coverage by 25% to enhance developer confidence in application stability and minimize regressions during future releases.</li>
+            <li>Architected a new front-end framework using SASS with ITCSS principles. This improved code reusability, established a consistent look-and-feel for the application, and reduced technical debt.</li>
           </ul>
         </article>
         <h4>Application Systems Analyst, Principal</h4>
         <article>
-          <h5>University of Arizona - Residence Life <small>Oct, 2015 - July, 2016</small></h5>
+          <h5>University of Arizona - Residence Life <small>Oct, 2010 - July, 2016</small></h5>
           <ul>
-            <li>Lead the migration of our Production and Development Housing system from on-premises to AWS.</li>
-            <li>Led Residence Life team working with Systems Administrator, Senior and University Network teams to organize and implement our Virtual Private Cloud in Amazon Web Services with a VPN connection to campus to support current needs and allow for future growth.</li>
-            <li>Appointed member of eight-person search committee tasked with hiring the new Assistant Director of Technology Services in Residence Life.</li>
-            <li>Functioned as the direct supervisor for two Student IT Support Technicians. Solely responsible for screening, interviewing, and hiring applicants.</li>
-          </ul>
-        </article>
-        <h4>Application Systems Analyst</h4>
-        <article>
-          <h5>University of Arizona - Residence Life <small>August, 2011 - Oct, 2015</small></h5>
-          <ul>
-            <li>Work with team members to research plan and implement the migration of new and legacy systems from on premise datacenters to AWS managed infrastructure.</li>
-            <li>Technical Lead of five-person project team tasked with replacing the existing out-of-date student housing system used by Residence Life with [a] new streamlined process developed in conjunction with vendor company StarRez. Supervised the integration of the new housing system with existing campus partners and served as liaison between The University of Arizona and StarRez.</li>
-            <li>Write and maintain C# applications used to manage 6,000+ graduate and undergraduate students per year in the University of Arizona housing system.</li>
-            <li>Designed and built an innovative self-assign system that allows 6,000+ undergraduate and graduate students to self-select where they want to live on campus. In the Fall 2013 semester, the system was accessed by and able to sustain 2,500 users in the first 15 minutes it was live.</li>
-            <li>Worked with the Residence Life Marketing Department to completely redesign and rebuild the Residence Life website. Served as the sole developer in charge of migrating the 25,000 page statically-generated PHP site to a full-featured CMS with a custom theme and over fifteen custom-built modules.</li>
-            <li>Collaborated with the Marketing and Residential Education Departments to design and build a mobile-first responsive website used in the winning bid by the University of Arizona to host the AIMHO 2015 Conference.</li>
+            <li>Led a team in researching, planning, and implementing the migration of new and legacy systems from on-premise data centers to a secure and scalable AWS cloud environment. This improved efficiency, reduced costs, and ensured high availability.</li>
+            <li>Contributed to strategic talent acquisition by serving on an eight-person search committee responsible for selecting the new Assistant Director of Technology Services in Residence Life.</li>
+            <li>Led a 5-person team to replace the outdated student housing system with a streamlined process developed with StarRez. Successfully integrated the new system with existing campus partners, acting as the liaison between the University of Arizona and StarRez.</li>
+            <li>Managed a team of two Student IT Support Technicians. Led the recruitment process, including screening, interviewing, and hiring qualified candidates.</li>
+            <li>Designed and built a highly scalable self-selection system enabling 6,000+ students to choose their on-campus housing. The system handled 2,500 concurrent users in the first 15 minutes, demonstrating exceptional performance under high load.</li>
           </ul>
         </article>
     </section>
