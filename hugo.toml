@@ -59,3 +59,4 @@ PaginatePath = "posts"
     [[deployment.targets]]
     name = "aws"
     URL = "s3://chadnierenhausen.com?region=us-west-2"
+    cloudFrontDistributionID = "E2F1VEZR0VQ1P6"

@@ -5,11 +5,11 @@ name = "Cnieren"
 license = "MIT"
 licenselink = "https://github.com/cnieren/cnieren/blob/master/LICENSE.md"
 description = "Hugo theme for my blog"
-homepage = "http://www.chadnierenhausen.com/"
+homepage = "https://www.chadnierenhausen.com/"
 tags = ["hugo", "blog", "cnieren"]
 features = ["blog"]
 min_version = 0.14
 
 [author]
   name = "Chad Nierenhausen"
-  homepage = "http://chadnierenhausen.com"
+  homepage = "https://chadnierenhausen.com"
