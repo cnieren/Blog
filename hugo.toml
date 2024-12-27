@@ -3,8 +3,9 @@ title = "Chad Nierenhausen"
 theme = "cnieren"
 languageCode = "en-us"
 
-Paginate = 5
-PaginatePath = "posts"
+[pagination]
+    pagerSize = 5
+    path = "posts"
 
 
 [permalinks]

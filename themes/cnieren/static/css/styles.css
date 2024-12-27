@@ -120,6 +120,10 @@ blockquote:before {
     justify-content: space-around;
 }
 
+.flex .row.between {
+    justify-content: space-between;
+}
+
 .flex .row .flex-item {
     margin-bottom: 1rem;
 }
@@ -319,6 +323,13 @@ figure figcaption h4:after {
     margin-left: auto;
 }
 
+/***************************/
+/*     Utility Classes     */
+/***************************/
+
+.upper {
+    text-transform: uppercase;
+}
 
 /***************************/
 /*        Resume           */
@@ -335,19 +346,42 @@ section {
     margin-top: 1.5em; 
 }
 
-.resume section:first-child {
+.resume .row {
+    margin: 0;
+}
+
+.resume section .name {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
+}
+
+.resume .details {
+    padding:5px 0;
+}
+
+.resume .details span {
+    padding: 0 5px;
+}
+
+.resume .section-title {
+    margin-bottom: 15px
+}
+
+.resume .job-title .company-name {
+    text-transform: uppercase;
+    font-size: smaller;
 }
 
 .resume article {
     margin-left: 10px;
+    margin-top: 20px;
+    padding-bottom: 5px;
 }
 
 .resume article:not(:last-child) {
     border-bottom: 1px solid #586e75;
-    margin-bottom: 13px;
+    margin-bottom: 20px;
 }
 
 .resume .skills ul {
@@ -356,9 +390,48 @@ section {
     column-count: 2;
 }
 
+.resume section .highlight {
+    border: 1px solid;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.resume section .highlight .lead {
+    font-weight: bold;
+    text-align: center;
+    color: #1998b8;
+    margin: 3px;
+}
+
+.resume section .highlight ul li strong {
+    color: #b58900;
+}
+
+.resume .pullout aside {
+    float: right;
+    margin: 0 5px 0px 10px;
+    padding: 10px 19px;
+    max-width: 25%;
+    border-radius: 25% 5%;
+    background-color: #0f3555; 
+}
+
+.resume .pullout aside p {
+    color: #ddd;
+}
+
+.resume ul.checkmark {
+    list-style: none;
+}
+
+.resume ul.checkmark li:before {
+    content: '✓';
+    margin-right: 5px;
+}
+
 .resume small,
 .resume .small {
-    color: #b58900;
+    font-size: 14px;
 }
 
 .resume h3 {
@@ -379,6 +452,7 @@ section {
     display: block;
     line-height: 1.75em;
     padding-left: 8px;
+    color: #b58900;
 }
 
 /***************************/
@@ -404,12 +478,13 @@ section {
         justify-content: space-around;
     }
     .resume .skills ul {
-        -webkit-columns: 180px 3;
-        -webkit-column-gap: 20px;
-        -moz-columns: 180px 3;
-        -moz-column-gap: 20px;
-        column-count: 180px 3;
-        column-gap: 20px;
+        -webkit-columns: 180px 2;
+        -webkit-column-gap: 40px;
+        -moz-columns: 180px 2;
+        -moz-column-gap: 40px;
+        column-count: 180px 2;
+        column-gap: 40px;
+        columns: 180px 2;
     }
 }
 

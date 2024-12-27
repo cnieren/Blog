@@ -9,92 +9,145 @@ slug = "resume"
 
 <div class="resume">
     <section>
-      <h2>Chad Nierenhausen<br /><small>EVP of Software Development</small></h2>
-      <span class="pdf"><a href="/assets/Chad_Nierenhausen_Resume.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a></span>
+      <div class="name">
+        <h2>Chad Nierenhausen</h2>
+        <span class="pdf"><a href="/assets/Chad_Nierenhausen_Resume.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a></span>
+      </div>
+      <div class="details">
+        Tucson, AZ
+        <span>&bullet;</span>
+        <a href="mailto:chad.nierenhausen@gmail.com">chad.nierenhausen@gmail.com</a>
+        <span>&bullet;</span>
+        <a href="http://www.linkedin.com/in/cnieren/">Linked In</a>
+      </div>
     </section>
     <section>
-        <h3>Work Experience</h3>
-        <h4>EVP of Software Development</h4>
-        <article>
-          <h5>Pyx Health<small>Aug, 2019 - Present</small></h5>
-          <ul>
-            <li>Architected and scaled cloud-native software & infrastructure to support the Pyx Health Progressive Web App, iOS, and Android mobile applications. This resulted in a 2,250% increase in customer base, growing from 2 national clients to 23 national clients across 150+ markets.</li>
-            <li>Led and mentored the Engineering team through a significant expansion, growing from 3 members to 16, establishing multiple agile development teams, a dedicated QA team, and a Data Engineering team.</li>
-            <li>Built the Data Engineering department from the ground up, enabling the ingestion of over 600 flat files with a combined 10+ million records monthly.</li>
-            <li>Spearheaded the Engineering team during a period of exceptional growth (250% annually), achieving recognition on the Inc. list of Fastest Growing Companies for two consecutive years.</li>
-            <li>Delivered projects consistently on time, maintaining a near-perfect score on HiTRUST r2 compliance certifications.</li>
-            <li>Successfully integrated the Engineering team post-acquisition (InquisitHealth). Migrated their infrastructure from AWS to Azure, implemented robust QA, Stage, and Production environments, and established a streamlined Azure DevOps pipeline (build once, deploy anywhere). This ensured compliance with regulations and elevated the product's capabilities to meet Pyx's high standards.</li>
-            <li>Collaborated with Data Analytics to construct a PII-blinded data warehouse with Machine Learning and AI functionalities. This led to the development of a proprietary Loneliness scoring algorithm that effectively identifies at-risk members within health plan partner cohorts, enabling better service targeting.</li>
-          </ul>
+      <article>
+        <h3>Target: Director of Development | Engineering Manager | Techincal Product Management</h3>
+        <aside><strong>Transformative leader enhancing tech landscapes and driving growth with innovative, scalable cloud solutions.</strong></aside>
+        <p>Strategic innovator and pioneer of new technologies with a proven record in scaling cloud-native solutions and leading teams in highly regulated sectors such as healthcare. Expert in integrating diverse technical teams and leading data engineering projects, driving innovation and efficiency in tech-focused organizations. Skilled communicator with both technical and nontechnical stakeholders, excelling in team building, organizational development, and technical project planning.</p>
+      </article>
+    </section>
+    <section>
+        <h3 class="section-title">Career Experience & Achievements</h3>
+        <article class="flex">
+          <div class="row between">
+            <h4 class="job-title">Executive Vice President, Software Development | <span class="company-name">Pyx Health</span></h4>
+            <h5><small>2019 - 2024</small></h5>
+            <strong class="small">A healthcare technology company focused on supporting members through social determinants of health (SDOH) screening tools.</strong>
+          </div>
+          <div class="row">
+            <p>Advanced from Senior Software Engineer to an executive leadership role, architecting and scaling cloud-native software and infrastructure for the Pyx Health Progressive Web App and mobile platforms. Achieved 2,250% growth in customer base, expanding from 2 to 23 national clients across 150+ markets. Led engineering team through major expansion from 3 to 18 members, establishing multiple Agile Development teams, a dedicated QA team, and a Data Engineering team.</p>
+          </div>
+          <div class="row">
+            <div class="pullout">
+              <aside>
+                <p>Led the Engineering team during 250% annual growth period, securing 2x recognition on Inc.’s list of Fastest Growing Companies.</p>
+              </aside>
+              <ul>
+                <li>Automated the monthly ingestion of 600+ flat files and 10M+ records. This automation streamlined delivery of hundreds of client data reports, freeing up team resources for higher-level tasks and reducing client onboarding time. </li>
+                <li>Collaborated on the development of a PII-blinded data warehouse with AI and ML capabilities, leading to a proprietary scoring algorithm that identifies at-risk members within health plan cohorts, enhancing targeted services.</li>
+                <li>After the acquisition of InquisitHealth, transitioned their infrastructure from AWS to Azure, implemented robust QA and production environments, and established a streamlined Azure DevOps pipeline, ensuring regulatory compliance and elevating product standards.</li>
+                <li>Reduced cloud infrastructure overspending, saving an estimated $400K over 5 years, by auditing usage and realigning resources with actual traffic patterns. Established monitoring to manage the ecosystem and sunset unused services.</li>
+                <li>Leveraged a people-centric leadership mindset. Advanced junior members to senior roles through active mentoring and development, aligning personal ambitions with company goals.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="highlight">
+              <p class="lead">
+                As one of the initial 10 hires, played a pivotal role in key business-impacting projects, including:
+              </p>
+              <ul class="checkmark">
+                <li><strong>HiTRUST R2 Certification:</strong> Secured and maintained HiTRUST R2 certification, demonstrating commitment to data security and privacy. This involved a coordinated effort across Legal, IT, Development, Operations, QA, and Data Engineering teams. Developed 150+ policy documents and collaborated with auditors on 300+ controls, enhancing trust with health insurance partners and reducing sales barriers by assuring robust protection of sensitive data.</li>
+                <li><strong>Post-Acquisition Team Integration:</strong> Streamlined integration of 2 distinct development teams post-acquisition by collaborating with leadership to assess and align methodologies. Implemented phased transition plan, supported by Scrum Masters, leading to swift adoption of Agile practices and cross-team collaboration within 3 months.</li>
+                <li><strong>Building Out Data Engineering Function:</strong> Established 4-person Data Engineering team in response to increasing data sizes and complexity. Secured funding for growth and established a structured team-reporting system.</li>
+              </ul>
+            </div>
+          </div>
         </article>
-        <h4>Software Architect</h4>
-        <article>
-          <h5>The American Board of Radiology<small>Feb, 2018 - Aug, 2019</small></h5>
-          <ul>
-            <li>Oversaw the development of a brand new .NET Core API and Aurelia/Redux UI for an online testing platform used by radiologists to maintain their certifications.</li>
-            <li>Collaborated with the QA department to perform load testing, profiling, and performance optimization of the API to ensure it could handle anticipated user volumes during launch.</li>
-            <li>Partnered with Systems Administrators to design and implement a new automated build and deployment pipeline using TFS 2018, streamlining code delivery across all environments.</li>
-            <li>Designed and built two sandboxed systems for the outreach team, each consisting of a laptop, MikroTik hotspot, and 5 iPads, to facilitate product demonstrations and customer training in environments with limited or no network connectivity.</li>
-          </ul>
+        <article class="flex">
+          <div class="row between">
+            <h4 class="job-title">Software Architect  |  <span class="company-name">American Board of Radiology</span></h4>
+            <h5><small>2018 - 2019</small></h5>
+            <strong class="small">A not-for-profit professional association that oversees the certification and ongoing professional development of physician specialists.</strong>
+          </div>
+          <div class="row">
+            <ul>
+              <li>Directed development of new .NET Core API and Aurelia/Redux UI for an online testing platform, enabling radiologists nationwide to maintain certifications remotely, eliminating the need for in-person testing.</li>
+              <li>Collaborated with System Administrators and QA to conduct remote stress tests on new software for an 800-person center in Chicago, ensuring bandwidth adequacy with existing infrastructure.</li>
+                <ul>
+                  <li>Identified and resolved a critical network bottleneck that impeded testing efficiency, enhancing code delivery across all environments.</li>
+                </ul>
+              <li>Created 2 portable sandbox systems, with an isolated webserver and 5 iPads, enabling effective product demonstrations and customer training nationwide, particularly in areas with low or no Wi-Fi connectivity</li>
+            </ul>
+          </div>
         </article>
-        <h4>Software Development Engineer</h4>
-        <article>
-          <h5>SCI Solutions<small>July, 2016 - Feb, 2018</small></h5>
-          <ul>
-            <li>Full Stack .Net developer, working with a small agile team to maintain and improve a large SaaS application, that allows Physicians Offices and Hospitals to send and receive electronic orders for medical procedures. </li>
-            <li>Increased unit test code coverage by 25% to enhance developer confidence in application stability and minimize regressions during future releases.</li>
-            <li>Architected a new front-end framework using SASS with ITCSS principles. This improved code reusability, established a consistent look-and-feel for the application, and reduced technical debt.</li>
-          </ul>
+        <article class="flex">
+          <div class="row between">
+            <h4 class="job-title">Software Development Engineer  |  <span class="company-name">SCI Solutions</span></h4>
+            <h5><small>2016 - 2018</small></h5>
+            <strong class="small">Provider of digital engagement solutions for health enterprises, enhancing consumer digital access; acquired by R1 RCM in 2020.</strong>
+          </div>
+          <div class="row">
+            <ul>
+              <li>Acted as a Full Stack .Net Developer, enhancing and maintaining a large SaaS application within an agile team, enabling physicians’ offices and hospitals to manage electronic orders for medical procedures efficiently.</li>
+              <li>Boosted unit test code coverage by 25%, significantly enhancing developer confidence and reducing regressions in future application releases.</li>
+              <li>Developed new front-end framework using SASS and ITCSS principles, enhancing code reusability, ensuring consistent application aesthetics, and reducing technical debt. </li>
+            </ul>
+          </div>
         </article>
-        <h4>Application Systems Analyst, Principal</h4>
-        <article>
-          <h5>University of Arizona - Residence Life <small>Oct, 2010 - July, 2016</small></h5>
-          <ul>
-            <li>Led a team in researching, planning, and implementing the migration of new and legacy systems from on-premise data centers to a secure and scalable AWS cloud environment. This improved efficiency, reduced costs, and ensured high availability.</li>
-            <li>Contributed to strategic talent acquisition by serving on an eight-person search committee responsible for selecting the new Assistant Director of Technology Services in Residence Life.</li>
-            <li>Led a 5-person team to replace the outdated student housing system with a streamlined process developed with StarRez. Successfully integrated the new system with existing campus partners, acting as the liaison between the University of Arizona and StarRez.</li>
-            <li>Managed a team of two Student IT Support Technicians. Led the recruitment process, including screening, interviewing, and hiring qualified candidates.</li>
-            <li>Designed and built a highly scalable self-selection system enabling 6,000+ students to choose their on-campus housing. The system handled 2,500 concurrent users in the first 15 minutes, demonstrating exceptional performance under high load.</li>
-          </ul>
+        <article class="flex">
+          <div class="row">
+            <h4 class="job-title">Application Systems Analyst / Developer, Principal  |  <span class="company-name">University of Arizona</span></h4>
+            <h5><small>2010 - 2016</small></h5>
+            <strong class="small">An elite, globally recognized university system with 19 separate schools known for outstanding academics and value.</strong>
+          </div>
+          <div class="row">
+            <ul>
+              <li>Transitioned new and legacy systems from on-premises data centers to AWS cloud infrastructure, enhancing efficiency, reducing expenses, and achieving high system availability. Gained immersive training and education at AWS’s re:Invent Conference.</li>
+              <li>Overhauled the student housing system, enhancing process efficiency and integrating with campus partners. Developed scalable self-selection system for 6K+ students, successfully maintaining high performance under peak loads.</li>
+              <li>Served on a talent search committee to select a new Assistant Director of Technology Services, leading recruitment efforts from screening to hiring.</li>
+              <li>Led a new wave of virtualization by identifying emerging technologies, developing proof of concepts, and training teams on key tools, such as Vagrant, Docker, and Kubernetes.</li>
+            </ul>
+          </div>
         </article>
+    </section>
+    <section>
+      <h3 class="section-title">Education</h3>
+      <article class="flex">
+        <div class="row">
+          <h4 class="center">Bachelor of Science (BS), Computer Sciences | University of Arizona</h4>
+        </div>
+      </article>
+      <article class="flex">
+        <div class="row">
+          <h4 class="job-title">Professional Development</h4>
+          <ul>
+            <li>DeadFace CTF (2024): Participated on a 4-person team to a top 5% finish in a 2-day cybersecurity challenge, focusing on cryptography, steganography, reverse engineering, and SQL injection.</li>
+            <li>SANS Holiday Hack Challenge (2024): Completed a solo, self-paced, hands-on learning experience focused on critical cybersecurity challenges.</li>
+          </ul>
+        </div>
+      </article>
     </section>
     <section>
       <h3>Skills</h3>
       <div class="skills">
         <ul>
-          <li>Azure</li>
-          <li>C#</li>
-          <li>JavaScript <i class="fab fa-js-square"></i></li>
-          <li>Docker <i class="fab fa-docker"></i></li>
-          <li>AWS <i class="fab fa-aws"></i></li>
-          <li>TypeScript</li>
-          <li>Node <i class="fab fa-node-js"></i></li>
-          <li>Angular <i class="fab fa-angular"></i></li>
-          <li>Aurelia</li>
-          <li>React <i class="fab fa-react"></i></li>
-          <li>Redux</li>
-          <li>Webpack</li>
-          <li>.Net Core</li>
-          <li>Visual Studio</li>
-          <li>Microsoft SQL <i class="fas fa-database"></i></li>
-          <li>GitHub <i class="fab fa-github"></i></li>
-          <li>Windows <i class="fab fa-windows"></i></li>
-          <li>Linux <i class="fab fa-linux"></i></li>
-          <li>MacOS <i class="fab fa-apple"></i></li>
+          <li>Strategic Leadership</li>
+          <li>Project Management</li>
+          <li>Process Optimization</li>
+          <li>Change Management</li>
+          <li>Team Building</li>
+          <li>Cost Management</li>
+          <li>Regulatory Compliance</li>
+          <li>Server Administration</li>
+          <li>Cross-Disciplinary Knowledge</li>
+          <li>Data Engineering</li>
+          <li>Cloud Infrastructure Management (AWS, Azure)</li>
+          <li>Software Development</li>
+          <li>Machine Learning (ML) & AI Integration</li>
         </ul>
       </div>
-    </section>
-    <section>
-      <h3>Education</h3>
-      <h4>University of Arizona</h4>
-      <article>
-        <h5>Computer Science<small>2007 - 2016</small></h5>
-        <p>Pursued a Bachelor of Science in Computer Science while working full time for the University of Arizona.</p>
-      </article>
-      <h4>Pima Community College</h4>
-      <article>
-        <h5>Computer Science<small>2005 - 2007</small></h5>
-        <p>Completed two years of general and Computer Science -specific coursework before transferring to The University of Arizona</p>
-      </article>
     </section>
 </div>
