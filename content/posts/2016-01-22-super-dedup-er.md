@@ -12,6 +12,8 @@ I was recently asked to use JavaScript to solve the following problem:
 
 > Given an unsorted list of email addresses, write a function to remove all duplicates while maintaining the original ordering of the list. The solution should be able to run in well under a second on and list of 100,000 items with up to 50% duplication in the list.
 
+<!--more-->
+
 ## TL;DR
 Insertion into a binary tree is much faster than doubly nested loops and insertion into a hash table is faster yet. Who knew?
 Here is a live [demo][Demo] you can play with and the code that powers the demo can be found [here][DemoCode].

@@ -9,7 +9,7 @@
         {{ range $recipe.ingredients }}
         <tr>
             <td>{{ if .quantity }}<strong>{{ .quantity }} {{ .unit }}</strong>{{ end }}</td>
-            <td>{{ if .url }}<a href="{{ . }}">{{ end }}{{ .ingredient }}{{ if .url }}</a>{{ end }}</td>
+            <td>{{ if .url }}<a href="{{ .url }}">{{ end }}{{ .ingredient }}{{ if .url }}</a>{{ end }}</td>
         </tr>
         {{ end }}
     </table>

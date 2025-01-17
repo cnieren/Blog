@@ -23,7 +23,7 @@ slug = "resume"
     </section>
     <section>
       <article>
-        <h3>Target: Director of Development | Engineering Manager | Techincal Product Management</h3>
+        <h3>Target: Sr. Engineering Manager | Techincal Product Management</h3>
         <aside><strong>Transformative leader enhancing tech landscapes and driving growth with innovative, scalable cloud solutions.</strong></aside>
         <p>Strategic innovator and pioneer of new technologies with a proven record in scaling cloud-native solutions and leading teams in highly regulated sectors such as healthcare. Expert in integrating diverse technical teams and leading data engineering projects, driving innovation and efficiency in tech-focused organizations. Skilled communicator with both technical and nontechnical stakeholders, excelling in team building, organizational development, and technical project planning.</p>
       </article>
@@ -144,9 +144,18 @@ slug = "resume"
           <li>Server Administration</li>
           <li>Cross-Disciplinary Knowledge</li>
           <li>Data Engineering</li>
-          <li>Cloud Infrastructure Management (AWS, Azure)</li>
+          <li>Cloud Infrastructure (AWS, Azure, GCP)</li>
           <li>Software Development</li>
           <li>Machine Learning (ML) & AI Integration</li>
+          <li>DevOps - CI/CD</li>
+          <li>Mobile Development</li>
+          <li>C#, .NET</li>
+          <li>Microsoft SQL</li>
+          <li>Go Lang</li>
+          <li>Python</li>
+          <li>JavaScript, TypeScript</li>
+          <li>C</li>
+          <li>Java</li>
         </ul>
       </div>
     </section>

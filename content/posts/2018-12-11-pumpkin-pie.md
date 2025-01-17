@@ -14,6 +14,8 @@ tags = ["cooking", "chef steps", "serious eats", "pie crust", "pumpkin pie", "sw
 
 &nbsp;
 
+<!--more-->
+
 {{< recipe  "pie-crust" >}}
 
 {{< recipe  "sweetened-condensed-milk" >}}

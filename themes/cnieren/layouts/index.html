@@ -3,7 +3,7 @@
         {{ $paginator := .Paginate (where .Pages "Type" "posts") }}
         {{ range $paginator.Pages }}
             {{ .Title }}
-            {{ .Render "summary" }}
+            {{ .Summary }}
         {{ end }}
         {{ template "_internal/pagination.html" . }}
     </article>

@@ -478,13 +478,13 @@ section {
         justify-content: space-around;
     }
     .resume .skills ul {
-        -webkit-columns: 180px 2;
-        -webkit-column-gap: 40px;
-        -moz-columns: 180px 2;
-        -moz-column-gap: 40px;
-        column-count: 180px 2;
-        column-gap: 40px;
-        columns: 180px 2;
+        -webkit-columns: 230px 3;
+        -webkit-column-gap: 60px;
+        -moz-columns: 230px 3;
+        -moz-column-gap: 60px;
+        column-count: 230px 3;
+        column-gap: 60px;
+        columns: 230px 3;
     }
 }
 

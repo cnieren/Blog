@@ -14,7 +14,7 @@ languageCode = "en-us"
 
 [params]
     colorscheme = "solarized"
-    tagline = "Professional Developer, Amateur Chef, Aspiring Maker"
+    tagline = "Technology Leader, Developer, Amateur Chef, Aspiring Maker"
     footerLeft = "Made with <i class=\"fas fa-heart\"></i> by Chad Nierenhausen"
     footerRight = "</> on <a href=\"http://github.com/cnieren\">Github</a> <i class=\"fab fa-github-alt\"></i>"
     description = "Chad Nierenhausen's Blog"

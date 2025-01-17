@@ -10,6 +10,8 @@ tags = ["hugo", "solarized", "codeship", "blog", "jekyll"]
 
 One of the main reasons I started this blog, was to give me a place that I could use an excuse to experiment with new things that I found interesting. True to that goal I have spent some time over that last week completely modifying the underlying structure and technologies that I use to author and host this blog. Here is a quick rundown of some of the changes.
 
+<!--more-->
+
 ## Hugo
 [Hugo] is another static site generator, much like Jekyll, but it runs on Go instead of Ruby. I have been interested in Go since it was announced in 2009 and have been looking for a reason to learn more about it ever since, so I decided to transition the blog to Hugo as a first step. The most recent release of Hugo (v0.15) includes a Jekyll site import utility which automates most of the conversion of existing posts from a Jekyll site to Hugo which cemented my decision to switch. Two other selling points for Hugo are that the Hugo command line utility runs on any operating system, as long as Go is installed and its [really fast][speedDemo].
 

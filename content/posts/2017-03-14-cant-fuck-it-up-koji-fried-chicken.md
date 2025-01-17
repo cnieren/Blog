@@ -15,18 +15,20 @@ tags = ["cooking", "koji", "cooks science", "chef steps", "fried chicken", "sous
 [Sous-vide]: https://en.wikipedia.org/wiki/Sous-vide
 
 [Americas Test Kitchen]: https://www.americastestkitchen.com/
-[Cook's Science]: http://www.cooksscience.com/recipes/9203-koji-fried-chicken
-[The Science of Good Cooking]: https://americastestkitchen.buysub.com/best-sellers/science-of-good-cooking-bks.html
+[Cook's Science]: https://www.americastestkitchen.com/recipes/9203-koji-fried-chicken
+[The Science of Good Cooking]: https://www.amazon.com/Science-Good-Cooking-Illustrated-Cookbooks/dp/1933615982
 [Dan Souza]: https://twitter.com/testcook
 [Molly Birnbaum]: https://twitter.com/mollybirnbaum
 
 [CS Fried Chicken]: https://www.chefsteps.com/activities/can-t-f-it-up-fried-chicken
-[Koji Fried Chicken]: http://www.cooksscience.com/recipes/9203-koji-fried-chicken/
+[Koji Fried Chicken]: https://www.americastestkitchen.com/recipes/9203-koji-fried-chicken
 [Shio Koji]: http://www.cooksscience.com/recipes/9200-shio-koji/
 [Cold Mountain]: http://www.pacificeastwest.com/072546382100.html
 [Oil Cleaning]: http://www.seriouseats.com/2016/06/clean-cooking-oil-with-gelatin-technique.html
 
 The bio line on the homepage says that I'm a "Professional Developer, Amateur Chef, and Aspiring Maker". All of my posts thus far have been about development, today we are going to change that and write about the second thing on that list.
+
+<!--more-->
 
 ## Cook's Science
 My love of cooking can be traced back to one book: [The Science of Good Cooking] that was published in 2012 by [Americas Test Kitchen]. Learning about the chemical processes that occur during cooking and discovering how easy it was to get fantastic results by following their very clear instructions built my confidence quickly and encouraged me to continue learning. [Cook's Science] is the newest site to the Americas Test Kitchen family, it was started by [Dan Souza] and [Molly Birnbaum] who were the kitchen editor and project editor for The Science of Good Cooking. The site publishes in-depth articles and recipes using the same attention to detail and chemistry based approach that is found in the cookbook.
