@@ -253,10 +253,6 @@ figure figcaption h4:after {
     opacity: 0.4;
 }
 
-.center {
-    text-align: center;
-}
-
 .article-content,
 .article-listing {
     padding: 15px;
@@ -330,6 +326,17 @@ figure figcaption h4:after {
 .upper {
     text-transform: uppercase;
 }
+
+.center {
+    text-align: center;
+}
+
+.object-fit img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
 
 /***************************/
 /*        Resume           */
